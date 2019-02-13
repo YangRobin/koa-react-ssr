@@ -4,12 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack --config ./src/config/webpack.config.babel.js --mode production",
+    "build": "webpack --config ./src/config/webpack.config.babel.js --mode production",
     "dev": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prod": "cross-env NODE_ENV=test nodemon --exec babel-node src/index.js && babel-node ./config/webpack.config.babel.js",
-    "build": "webpack --config ./src/config/webpack.config.babel.js --mode production",
-    "serve" :"npm  start && npm run prod"
+    "server": "cross-env NODE_ENV=test nodemon --exec babel-node src/index.js && babel-node ./config/webpack.config.babel.js",
+    "buildd": "webpack --config ./src/config/webpack.config.babel.js --mode production",
+    "serve": "npm  start && npm run prod"
   },
   "author": "robin",
   "license": "ISC",
@@ -26,6 +26,7 @@
     "koa": "^2.7.0",
     "koa-router": "^7.4.0",
     "koa-static": "^5.0.0",
+    "koa-views": "^6.1.5",
     "nodemon": "^1.18.9",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
@@ -37,5 +38,3 @@
     "webpack-dev-server": "^3.1.14"
   }
 }
-
-

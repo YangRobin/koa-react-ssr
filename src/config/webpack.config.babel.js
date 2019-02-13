@@ -7,7 +7,6 @@ import CleanWebpackPlugin from "clean-webpack-plugin";
 
 import BasicPlugin from "../plugins/test";
 
-import rloader from "../loaders/test";
 // const  getEntries =require('../util/util');
 // const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -38,7 +37,7 @@ const conf = {
   //   contentBase: path.join(__dirname, "../dist"),
   //   hot: true ,//启动热更新,
   // },
-  watch: true,
+  // watch: true,
   watchOptions: {
     ignored: "controller/*.js"
   },
@@ -48,7 +47,15 @@ const conf = {
         test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
         use: [
           {
-            loader: path.resolve(__dirname,'../loaders/test.js'),
+            loader: path.resolve(__dirname,'../loaders/jsx2html.js'),
+            options: {
+              inputPath:'../pages',
+              outputPath:'../dist',
+              template:'../template.html'
+            }
+          },
+          {
+            loader: path.resolve(__dirname,'../loaders/addRender.js'),
             options: {
               inputPath:'../pages',
               outputPath:'../dist',
@@ -59,6 +66,21 @@ const conf = {
         
        //使用的加载器名称
       },
+      // {
+      //   test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
+      //   use: [
+      //     {
+      //       loader: path.resolve(__dirname,'../loaders/test.js'),
+      //       options: {
+      //         inputPath:'../pages',
+      //         outputPath:'../dist',
+      //         template:'../template.html'
+      //       }
+      //     }
+      //   ],
+        
+      //  //使用的加载器名称
+      // },
       {
         test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
         loader: "babel-loader", //使用的加载器名称

@@ -5,11 +5,12 @@ import Home from "../pages/home";
 
 import path from "path";
 
-export function home(ctx, next) {
-
-  console.log(__dirname);
-  const html = fs.readFileSync(path.join(__dirname, "../dist/home.html"));
-  ctx.body =html.toString()
+export async function  home(ctx, next) {
+  
+   await ctx.render('home')
+  // console.log(__dirname);
+  // const html = fs.readFileSync(path.join(__dirname, "../dist/home.html"));
+  // ctx.body =html.toString()
 }
 
 // export function test(ctx, next) {

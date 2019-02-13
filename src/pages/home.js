@@ -44,6 +44,7 @@ Home.propTypes={
   list:PropTypes.array
 }
 
+console.log("robin")
 if(typeof window  !== "undefined"){
   ReactDom.render(<Home />,document.getElementById('root'))
 }
