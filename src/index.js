@@ -20,4 +20,5 @@ app.use(koaStatic(
 
 app.use(router.routes())
 app.listen(config.port)
+
 console.log("your app is running  "+ config.port)

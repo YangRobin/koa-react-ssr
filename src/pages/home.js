@@ -9,7 +9,6 @@ export default class Home extends Component{
     super(props);
     this.state={
       name:'robin',
-     
     }
   }
   test(){
@@ -18,12 +17,22 @@ export default class Home extends Component{
   componentDidMount(){
     window.localStorage.setItem("name","robin");
     var b=0;
+    fetch('test').then(res=>{
+      return res.json()
+    }).then(res=>{
+      this.setState({
+        name:res.name,
+        age:res.age,
+      })
+    })
   }
   
   render(){
     console.log(this.props)
     return (
       <div>
+         <h1>{this.state.name}</h1>
+         <h2>{this.state.age}</h2>
          <header>
             this is header
          </header>
