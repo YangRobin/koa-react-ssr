@@ -1,10 +1,12 @@
-import { getEntries } from "../util/util";
+import {
+  getEntries
+} from "../util/util";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import path from "path";
 import config from "./app.config";
 import fs from "fs";
 import CleanWebpackPlugin from "clean-webpack-plugin";
-
+import webpack from 'webpack'
 import BasicPlugin from "../plugins/test";
 
 // const  getEntries =require('../util/util');
@@ -18,7 +20,8 @@ const conf = {
     new CleanWebpackPlugin(["../dist"]),
     new BasicPlugin({
       options: true
-    })
+    }),
+
     // new VueLoaderPlugin(),
   ],
   resolve: {
@@ -32,7 +35,28 @@ const conf = {
     filename: "[name]",
     path: path.resolve(__dirname, "../dist")
   },
-
+  optimization: {
+    splitChunks: {
+      chunks: 'initial', // 只对入口文件处理
+      cacheGroups: {
+        vendor: { // split `node_modules`目录下被打包的代码到 `page/vendor.js && .css` 没找到可打包文件的话，则没有。css需要依赖 `ExtractTextPlugin`
+          test: /node_modules\//,
+          name: 'page/vendor',
+          priority: 10,
+          enforce: true
+        },
+        commons: { // split `common`和`components`目录下被打包的代码到`page/commons.js && .css`
+          test: /common\/|components\//,
+          name: 'page/commons',
+          priority: 10,
+          enforce: true
+        }
+      }
+    },
+    runtimeChunk: {
+      name: 'page/manifest'
+    }
+  },
   // devServer: {
   //   contentBase: path.join(__dirname, "../dist"),
   //   hot: true ,//启动热更新,
@@ -42,29 +66,27 @@ const conf = {
     ignored: "controller/*.js"
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
-        use: [
-          {
-            loader: path.resolve(__dirname,'../loaders/jsx2html.js'),
+        use: [{
+            loader: path.resolve(__dirname, '../loaders/jsx2html.js'),
             options: {
-              inputPath:'../pages',
-              outputPath:'../dist',
-              template:'../template.html'
+              inputPath: '../pages',
+              outputPath: '../dist',
+              template: '../template.html'
             }
           },
           {
-            loader: path.resolve(__dirname,'../loaders/addRender.js'),
+            loader: path.resolve(__dirname, '../loaders/addRender.js'),
             options: {
-              inputPath:'../pages',
-              outputPath:'../dist',
-              template:'../template.html'
+              inputPath: '../pages',
+              outputPath: '../dist',
+              template: '../template.html'
             }
           }
         ],
-        
-       //使用的加载器名称
+
+        //使用的加载器名称
       },
       // {
       //   test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
@@ -78,7 +100,7 @@ const conf = {
       //       }
       //     }
       //   ],
-        
+
       //  //使用的加载器名称
       // },
       {

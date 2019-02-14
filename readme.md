@@ -9,6 +9,7 @@ src
 ├─loaders  ： 自定义webpack loader 
 ├─pages : react 组件 一个组件一个页面
 ├─plugins : 自定义webpack 插件目录
+├─service: 通用数据接口
 ├─util :常用工具类
 └─web 
 ```
