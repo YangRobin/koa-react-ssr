@@ -1,6 +1,6 @@
-##  koa-react-ssr (基于koa的react 服务端渲染实践)
+####  koa-react-ssr (基于koa的react 服务端渲染实践)
 
-### 目录结构
+##### 目录结构
 ``` javascript
 src
 ├─config   :项目配置目录，包括了服务的配置 和前端webpack 配置等信息
@@ -14,19 +14,19 @@ src
 └─web 
 ```
 
-### 环境依赖
+##### 环境依赖
 
 
 - babel-node 
   npm install babel-cli -g
 
 
-#### 前端 打包命令
+##### 前端 打包命令
   npm build  运行该命令后webpack会一直监听pages目录下的资源 如果有变化 会自动打包 资源到dist。
   
-#### 启动后端服务
+##### 启动后端服务
   npm run server  启动后端 服务
-#### 需要注意的点
+##### 需要注意的点
   <p><strong>1.
     当我们再pages下新建一个react 组件(必须是UIComponent)时，webpack会
     自动打包一个同名的html文件 和js 文件。并且html中 会默认注入同名的js。
