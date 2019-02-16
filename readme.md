@@ -4,6 +4,7 @@
 ``` javascript
 src
 ├─config   :项目配置目录，包括了服务的配置 和前端webpack 配置等信息
+├─bin: 该目录 包含一些全局的命令行命令 ，在启动项目中之前 做一些资源准备工作
 ├─controller :后端控制器
 ├─dist   :前端打包后的资源文件宝行了html ,css ,js ,img等静态文件
 ├─loaders  ： 自定义webpack loader 
