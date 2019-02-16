@@ -9,6 +9,7 @@ export default class Home extends Component{
     super(props);
     this.state={
       name:'robin',
+      age:33,
     }
   }
   test(){
@@ -31,6 +32,8 @@ export default class Home extends Component{
     console.log(this.props)
     return (
       <div>
+        good robin
+        <h1>hahaha</h1>
          <h1>{this.state.name}</h1>
          <h2>{this.state.age}</h2>
          <header>
