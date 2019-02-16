@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "bin": {
+    "test": "./bin/test.js",
+    "react2html": "./bin/react2html.babel.js"
+  },
   "scripts": {
     "build": "webpack --config ./src/config/webpack.config.babel.js --mode production",
     "dev": "webpack-dev-server --mode development",
