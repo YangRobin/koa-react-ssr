@@ -1,6 +1,6 @@
 
 import Router from 'koa-router'
-import { home ,test} from './controller/HomeCtrl';
+import { home } from './controller/HomeCtrl';
 import { login } from './controller/loginCtrl';
 import  UserApi from './controller/UserApi'
 

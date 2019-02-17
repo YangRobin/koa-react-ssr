@@ -1,9 +1,19 @@
 import path from 'path';
 
+/**
+ * global config for app
+ */
+
 const config = {
-  //监听端口
+  //app port 
   port: 3000,
+  /**
+   * react UIcomponent which will used for rendering html 
+   */
   pageDir: path.resolve('./src/pages'),
+  /**
+   * datasource 
+   */
   database: {
     host: '127.0.0.1',
     user: 'root',

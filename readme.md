@@ -1,5 +1,22 @@
 ### koa-react-ssr (基于koa的react 服务端渲染实践)
 
+### 如何启动 
+  注:流程可能比较麻烦 ,后期会 把整个 启动流程 封装 成一个 nodejs 命令行发布到npm上 .
+  启动三个terminal 按顺序 执行以下命令
+ ``` shell  
+    npm run dev   //会把 /src/pages目录下的React 组件render 成html 到template目录下
+    npm run build  // 打包前端资源 到dist 下 ，依赖上一步 生成的html 文件
+    npm run server  // 启动后端服务
+  ```
+
+  如果还报错 请执行如下命令 加载自定义 shell命令  react2html 
+  ```shell
+     npm install -g 
+     npm link 
+  ```
+
+
+
 ##### 目录结构
 ``` javascript
 src
@@ -15,7 +32,6 @@ src
 └─web 
 
 ```
-<button> star me！</button>
 
 ##### 环境依赖
 

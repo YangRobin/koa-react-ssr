@@ -84,7 +84,7 @@ const conf = {
       //     }
       //   ],
 
-      //   //使用的加载器名称
+      //   
       // },
       // {
       //   test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
@@ -98,14 +98,11 @@ const conf = {
       //       }
       //     }
       //   ],
-
-      //  //使用的加载器名称
       // },
       {
-        test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
-        loader: "babel-loader", //使用的加载器名称
+        test: /\.js$/,
+        loader: "babel-loader", 
         query: {
-          //babel的配置参数，可以写在.babelrc文件里也可以写在这里
           presets: ["es2015"]
         }
       },
@@ -121,18 +118,22 @@ const conf = {
   }
 };
 
-fs.readdirSync(config.pageDir).forEach(i => {
 
+/**
+ * go through the page folder to generate html-webpack-plugin for webpack config
+ * 
+ */
+
+fs.readdirSync(config.pageDir).forEach(i => {
   if (i.match(/\.jsx$/) !== null) {
     let fileName = i.split('.')[0];
-    console.log(fileName)
     conf.plugins.push(
       new HtmlWebpackPlugin({
         filename: i.split(".")[0] + ".html",
         title: i,
         template: path.resolve(__dirname, "../template/" + fileName + ".html"),
         inject: true,
-        chunks: [i] //加载指定的js文件，没有指定该选项，则加载所有js文件
+        chunks: [i]
       })
     );
   }
