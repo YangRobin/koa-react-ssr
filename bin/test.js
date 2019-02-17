@@ -1,4 +1,3 @@
-import nodemon from 'nodemon';
 #!/usr/bin/env node
 
 /**

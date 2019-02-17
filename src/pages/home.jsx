@@ -32,7 +32,7 @@ export default class Home extends Component{
     console.log(this.props)
     return (
       <div>
-        good robin
+        <button>robin hello robin！</button>
         <h1>hahaha</h1>
          <h1>{this.state.name}</h1>
          <h2>{this.state.age}</h2>
@@ -43,7 +43,7 @@ export default class Home extends Component{
            this is main
          </main>
          <footer>
-           this is footer
+           this is footer s
          </footer>
         <h3>this is home page！</h3>
         <button onClick={this.test}>{this.state.name} </button>

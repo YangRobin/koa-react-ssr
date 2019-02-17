@@ -4,11 +4,12 @@ import fs from "fs";
 import Home from "../pages/home";
 
 import path from "path";
-import { getAllUser } from '../services/userServiceFacade';
+import { getAllUser, queryUseByNameAndPassword } from '../services/userServiceFacade';
 
 export async function  home(ctx, next) {
 
-   var res = await getAllUser();
+   var res = await queryUseByNameAndPassword('robin','15595469543');
+  console.log(res)
    await ctx.render('home')
   // console.log(__dirname);
   // const html = fs.readFileSync(path.join(__dirname, "../dist/home.html"));

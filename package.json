@@ -8,11 +8,12 @@
     "react2html": "./bin/react2html.js"
   },
   "scripts": {
-    "build": "webpack --config ./src/config/webpack.config.babel.js --mode production",
-    "dev": "webpack-dev-server --mode development",
+
+    "build": "webpack --config ./src/config/webpack.config.babel.js --mode production ",
+    "dd": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "cross-env NODE_ENV=test nodemon --exec babel-node src/index.js && babel-node ./config/webpack.config.babel.js",
-    "buildd": "webpack --config ./src/config/webpack.config.babel.js --mode production",
+    "server": "cross-env NODE_ENV=test nodemon --exec  babel-node src/index.js && babel-node ./config/webpack.config.babel.js",
+    "dev": " nodemon  -w src/pages --exec   babel-node  bin/react2html.js",
     "serve": "npm  start && npm run prod"
   },
   "author": "robin",
