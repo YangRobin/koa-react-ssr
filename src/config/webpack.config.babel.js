@@ -8,6 +8,7 @@ import fs from "fs";
 import CleanWebpackPlugin from "clean-webpack-plugin";
 import webpack from 'webpack'
 import BasicPlugin from "../plugins/test";
+import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 // const  getEntries =require('../util/util');
 // const path = require('path');
@@ -21,7 +22,7 @@ const conf = {
     new BasicPlugin({
       options: true
     }),
-
+    new ExtractTextPlugin("dd.css"),
     // new VueLoaderPlugin(),
   ],
   resolve: {
@@ -63,7 +64,42 @@ const conf = {
     ignored: "controller/*.js"
   },
   module: {
-    rules: [
+    rules: [{
+        test: /\.scss$/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: "css-loader",
+            options: {
+              modules: true, // 指定启用css modules
+              localIdentName: '[name]_[local]_[hash:base64:5]' // 指定css的类名格式
+            }
+          }, {
+            loader: 'sass-loader'
+          }]
+        })
+      },
+
+      // {
+      //   test: /\.scss$/,
+      //   exclude: /node_modules/,
+      //   use: ExtractTextPlugin.extract([{
+      //     loader: "style-loader"
+      //   }, {
+      //     loader: "css-loader",
+      //     options: {
+      //       modules: true, // 指定启用css modules
+      //       localIdentName: '[name]_[local]_[hash:base64:5]' // 指定css的类名格式
+      //     }
+      //   }, {
+      //     loader: 'sass-loader',
+      //     options: {
+      //       modules: true, // 指定启用css modules
+      //       localIdentName: '[name]_[local]_[hash:base64:5]' // 指定css的类名格式
+      //     }
+      //   }])
+      // },
+
       // {
       //   test: /\.js$/, //配置要处理的文件格式，一般使用正则表达式匹配
       //   use: [{
@@ -101,7 +137,8 @@ const conf = {
       // },
       {
         test: /\.js$/,
-        loader: "babel-loader", 
+        loader: "babel-loader",
+        exclude: /node_modules/,
         query: {
           presets: ["es2015"]
         }

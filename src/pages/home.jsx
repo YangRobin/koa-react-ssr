@@ -3,6 +3,9 @@ import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import Test from '../components/test.jsx';
+import style from "../style/test.scss"
+import TopMenu from '../components/top-menu/topMenu.jsx'
 
 export default class Home extends Component {
   constructor(props) {
@@ -39,18 +42,11 @@ export default class Home extends Component {
   render() {
     console.log(this.props)
     return (
-      <div>
-        <header>
-          {this.state.name}
-         </header>
-        <main>
-          this is main
-         </main>
-        <footer>
-          this is footer s
-         </footer>
-        <h3>this is home page！</h3>
-        <button onClick={this.test}>test</button>
+      <div >
+        <TopMenu/>
+        <Test />
+        <h3 className={style.test}>thl</h3>ddfff
+        <a href="login">login</a>
       </div>
     )
   }
