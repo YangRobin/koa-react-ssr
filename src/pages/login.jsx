@@ -2,10 +2,12 @@
 
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import TopMenu from '../components/top-menu/topMenu.jsx'
 export default class Login extends Component {
   render() {
     return (
       <div>
+        <TopMenu/>
         <h3>this is login page</h3>
         <div>
           <div>

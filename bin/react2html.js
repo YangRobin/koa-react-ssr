@@ -4,7 +4,9 @@
  * @author robin.yang
  */
 
-require('css-modules-require-hook');
+ 
+require('css-modules-require-hook')
+
  
 import React from 'react';
 import {
@@ -34,6 +36,7 @@ function run(pagePath) {
     const B = require(pageFolder + name).default,
       content = renderToString( < B / > ),
       html = template.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
+      console.log(html)
     fs.writeFile(path.join(__dirname, '../src/template/' + name.split('.')[0] + '.html'), html, 'utf-8', (err) => {
       if (err) {
         console.warn(err)

@@ -66,6 +66,7 @@ const conf = {
   module: {
     rules: [{
         test: /\.scss$/,
+        exclude: /node_modules/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [{

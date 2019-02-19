@@ -9,14 +9,19 @@
    @pagePath is the folder that contains the React UIComponent which used
    build html.
    @outputPath is the target folder for building source.
+
+   
   */
+
+require('css-modules-require-hook')
 const path = require('path'),
   fs = require('fs'),
   webpack = require('webpack'),
   HtmlWebpackPlugin = require('html-webpack-plugin'),
   pagePath = '../src/pages',
-  outputPath = '../src/dist',
-  nodemon =require('nodemon');
+  outputPath = '../src/template',
+  nodemon = require('nodemon'),
+  ExtractTextPlugin = require('extract-text-webpack-plugin')
 
 /*
   Scanning the given folder and build entry for webpack ,return a plain-object. 
@@ -40,15 +45,42 @@ const config = {
     filename: "[name].js",
     path: path.resolve(__dirname, outputPath)
   },
-  plugins: [],
+  plugins: [
+    new ExtractTextPlugin("style.css")
+  ],
   module: {
     rules: [{
-      test: /\.js$/,
-      loader: "babel-loader",
-      query: {
-        presets: ["es2015"]
-      }
-    }, ]
+        test: /\.scss$/,
+        exclude: /node_modules/,
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: [{
+            loader: "css-loader",
+            options: {
+              modules: true, // 指定启用css modules
+              localIdentName: '[name]_[local]_[hash:base64:5]' // 指定css的类名格式
+            }
+          }, {
+            loader: 'sass-loader'
+          }]
+        })
+      }, {
+        test: /\.jsx$/,
+        loader: "babel-loader",
+        query: {
+          presets: ["es2015"]
+        }
+      },
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_modules/,
+        query: {
+          presets: ["es2015"]
+        }
+      },
+
+    ]
   }
 }
 /**
@@ -75,6 +107,7 @@ function run() {
   webpack(config, (err, stats) => {
     if (err || stats.hasErrors()) {
       console.log(err)
+      console.log(stats.compilation.errors)
     }
     console.log('generate html succuessfully!')
   });

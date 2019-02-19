@@ -1,4 +1,9 @@
+.top {
 
-.top{
-  background: black;
+  ul {
+    display: flex;
+    li{
+      list-style: none;
+    }
+  }
 }

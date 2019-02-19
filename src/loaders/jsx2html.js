@@ -7,6 +7,7 @@ import {
 import React from 'react';
 import fs from 'fs';
 import path from 'path';
+require('css-modules-require-hook')
 
 
 export default function jsx2html(source) {
