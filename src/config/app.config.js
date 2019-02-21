@@ -10,7 +10,7 @@ const config = {
   /**
    * react UIcomponent which will used for rendering html 
    */
-  pageDir: path.resolve('./src/pages'),
+  pageDir: './src/web/pages',
   /**
    * datasource 
    */

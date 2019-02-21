@@ -3,9 +3,8 @@ import PropTypes from 'prop-types';
 
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import Test from '../components/test.jsx';
-import style from "../style/test.scss"
-import TopMenu from '../components/top-menu/topMenu.jsx'
+import style from "./style.scss"
+import TopMenu from '../../components/top-menu/topMenu.jsx'
 
 export default class Home extends Component {
   constructor(props) {
@@ -44,7 +43,7 @@ export default class Home extends Component {
     return (
       <div >
         <TopMenu/>
-        <Test />
+      
         <h3 className={style.test}>thl</h3>ddfff
         <a href="login">login</a>
       </div>

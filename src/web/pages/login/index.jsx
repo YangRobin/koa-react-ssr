@@ -2,7 +2,7 @@
 
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import TopMenu from '../components/top-menu/topMenu.jsx'
+import TopMenu from '../../components/top-menu/topMenu.jsx'
 export default class Login extends Component {
   render() {
     return (

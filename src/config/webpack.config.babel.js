@@ -6,8 +6,6 @@ import path from "path";
 import config from "./app.config";
 import fs from "fs";
 import CleanWebpackPlugin from "clean-webpack-plugin";
-import webpack from 'webpack'
-import BasicPlugin from "../plugins/test";
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 
 // const  getEntries =require('../util/util');
@@ -19,9 +17,6 @@ const conf = {
   entry: getEntries(config.pageDir),
   plugins: [
     new CleanWebpackPlugin(["../dist"]),
-    new BasicPlugin({
-      options: true
-    }),
     new ExtractTextPlugin("dd.css"),
     // new VueLoaderPlugin(),
   ],
@@ -34,7 +29,7 @@ const conf = {
   },
   output: {
     filename: "[name].js",
-    path: path.resolve(__dirname, "../dist")
+    path: path.resolve(__dirname, "../server/resource")
   },
   // optimization: {
   //   splitChunks: {
@@ -163,18 +158,18 @@ const conf = {
  */
 
 fs.readdirSync(config.pageDir).forEach(i => {
-  if (i.match(/\.jsx$/) !== null) {
+  // if (i.match(/\.jsx$/) !== null) {
     let fileName = i.split('.')[0];
     conf.plugins.push(
       new HtmlWebpackPlugin({
         filename: i.split(".")[0] + ".html",
         title: i,
-        template: path.resolve(__dirname, "../template/" + fileName + ".html"),
+        template: path.resolve(__dirname, "../server/resource/template/" + fileName + ".html"),
         inject: true,
         chunks: [i]
       })
     );
-  }
+  // }
 });
 
 export default conf;

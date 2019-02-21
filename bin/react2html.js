@@ -8,16 +8,16 @@
 require('css-modules-require-hook')({
   extensions: ['.scss'],
   preprocessCss: (data, filename) =>
-      require('node-sass').renderSync({
-          data,
-          file: filename
-      }).css,
+    require('node-sass').renderSync({
+      data,
+      file: filename
+    }).css,
   camelCase: true,
   generateScopedName: '[name]__[local]__[hash:base64:8]'
 })
 
 
- 
+
 import React from 'react';
 import {
   renderToString
@@ -27,7 +27,8 @@ import path from 'path';
 
 
 // page folder 
-const pageFolder='../src/pages/';
+const pageFolder = '../src/web/pages/';
+const targetTemplatePath = '../src/server/resource/template/';
 // const pageFolder =process.argv.slice()[0]
 
 // html template 
@@ -37,21 +38,22 @@ let template = '<!DOCTYPE html><html lang="en"><head>  <meta charset="UTF-8">  <
 
 function run(pagePath) {
   //get the jsx file in given folder 
-  const fileNames = fs.readdirSync(pagePath).filter((i) => {
-    return i.match(/\.jsx$/);
-  })
+  // const fileNames = fs.readdirSync(pagePath).filter((i) => {
+  //   return i.match(/\.jsx$/);
+  // })
+  const fileNames = fs.readdirSync(pagePath)
 
   // generate html by rendering React component in given folder 
   fileNames.forEach((name, index) => {
     const B = require(pageFolder + name).default,
-      content = renderToString( < B / > ),
+      content = renderToString(< B />),
       html = template.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
-      console.log(html)
-    fs.writeFile(path.join(__dirname, '../src/template/' + name.split('.')[0] + '.html'), html, 'utf-8', (err) => {
+    console.log(html)
+    fs.writeFile(path.join(__dirname, targetTemplatePath + name.split('.')[0] + '.html'), html, 'utf-8', (err) => {
       if (err) {
         console.warn(err)
       }
     })
   })
 }
-run(path.resolve(__dirname, '../src/pages'))
+run(path.resolve(__dirname,pageFolder))

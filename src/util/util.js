@@ -32,11 +32,10 @@ export function query ( sql, values ) {
 
 
 export function getEntries(dir){
-  path.resolve('./src/pages')
   var pages={}
-  fs.readdirSync(dir).forEach(i=>{
-    console.log(i)
-    pages[i]='./src/pages/'+i
+  fs.readdirSync(path.resolve(dir)).forEach(i=>{
+
+    pages[i]=dir+"/"+i+"/index.jsx"
   })
   return pages;
 }

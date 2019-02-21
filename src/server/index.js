@@ -1,5 +1,5 @@
 import Koa from 'koa'
-import config from './config/app.config'
+import config from '../config/app.config'
 import router from './router'
 import views from 'koa-views'
 import koaStatic from 'koa-static';
