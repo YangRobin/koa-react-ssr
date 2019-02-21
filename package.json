@@ -11,7 +11,7 @@
     "build": "webpack --config ./src/config/webpack.config.babel.js --mode production ",
     "dd": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "cross-env NODE_ENV=test nodemon --exec  babel-node src/index.js && babel-node ./config/webpack.config.babel.js",
+    "server": "cross-env NODE_ENV=test nodemon --exec  babel-node src/server/index.js ",
     "dev": " nodemon  -w src/pages --exec   babel-node  bin/react2html.js",
     "serve": "npm  start && npm run prod"
   },

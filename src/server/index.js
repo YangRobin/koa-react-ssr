@@ -6,12 +6,12 @@ import koaStatic from 'koa-static';
 import path from 'path';
 import koaBody from 'koa-body'
 
-const staticPath = './dist'
+const staticPath = './resource'
 const app = new Koa();
 
 
 app
-  .use(views(__dirname + '/dist'))
+  .use(views(__dirname + '/resource'))
   .use(koaStatic(
     path.join(__dirname, staticPath)
   ))

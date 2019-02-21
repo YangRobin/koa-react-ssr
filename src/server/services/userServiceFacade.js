@@ -4,7 +4,7 @@
 
 import {
   query
-} from '../util/util';
+} from '../../util/util';
 
 class UserServiceFacade {
   /**
