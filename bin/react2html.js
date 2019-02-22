@@ -12,11 +12,11 @@ require('css-modules-require-hook')({
       data,
       file: filename
     }).css,
-  camelCase: true,
-  generateScopedName: '[name]__[local]__[hash:base64:8]'
+  // camelCase: true,
+  generateScopedName: '[name]_[local]_[hash:base64:5]',
 })
 
-
+console.log("robin")
 
 import React from 'react';
 import {
@@ -56,4 +56,4 @@ function run(pagePath) {
     })
   })
 }
-run(path.resolve(__dirname,pageFolder))
+run(path.resolve(__dirname, pageFolder))

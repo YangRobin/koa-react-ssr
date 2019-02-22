@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-import style from "./style.scss"
+
 import Layout from '../../components/Layout/index.jsx'
 
 
@@ -40,7 +40,7 @@ class Home extends Component {
     console.log(this.props)
     return (
       <div >
-        <h3 className={style.test}>thl</h3>ddfff
+        <h3 >thl</h3>ddfff
         <a href="login">login</a>
         <button onClick={this.test}>test</button>
       </div>
@@ -49,10 +49,10 @@ class Home extends Component {
 }
 
 
-
-export default Layout(Home);
+const P = Layout(Home)
+export default P;
 
 if (typeof window !== "undefined") {
-  ReactDom.render(Layout(Home), document.getElementById('root'))
+  ReactDom.render(P, document.getElementById('root'))
 }
 
