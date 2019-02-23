@@ -1,0 +1,23 @@
+
+
+.card{
+  border-bottom: 2px solid #f2f2f2;
+  padding: 10px 20px;
+  .title{
+    font-size: 14px;
+  }
+  .content{
+    overflow: hidden;
+    img{
+      float: left;
+      width:130px;
+    }
+    .text{
+      overflow: hidden;
+    }
+  }
+  .footer{
+    color:gray;
+    font-size: 12px;
+  }
+}

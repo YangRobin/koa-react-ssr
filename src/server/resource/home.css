@@ -1,0 +1,69 @@
+.style_wrapper_src-web-components-wrapper- {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+.style_header_src-web-components-header- {
+  background-color: white;
+  height: 42px;
+  line-height: 42px; }
+body, button, ul, li, ol, h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #F6F6F6; }
+
+.style_wrapper_src-web-components-Layout- {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+li {
+  list-style: none; }
+.style_card_src-web-components-card- {
+  border-bottom: 2px solid #f2f2f2;
+  padding: 10px 20px; }
+  .style_card_src-web-components-card- .style_title_src-web-components-card- {
+    font-size: 14px; }
+  .style_card_src-web-components-card- .style_content_src-web-components-card- {
+    overflow: hidden; }
+    .style_card_src-web-components-card- .style_content_src-web-components-card- img {
+      float: left;
+      width: 130px; }
+    .style_card_src-web-components-card- .style_content_src-web-components-card- .style_text_src-web-components-card- {
+      overflow: hidden; }
+  .style_card_src-web-components-card- .style_footer_src-web-components-card- {
+    color: gray;
+    font-size: 12px; }
+.style_commentor_src-web-components-commentor- .style_operator_src-web-components-commentor- {
+  display: flex; }
+
+.style_commentor_src-web-components-commentor- .style_commentorList_src-web-components-commentor- {
+  color: red; }
+.style_nav_src-web-components-nav- .style_menu_src-web-components-nav- {
+  display: flex; }
+  .style_nav_src-web-components-nav- .style_menu_src-web-components-nav- li {
+    font-size: 14px;
+    padding: 10px;
+    cursor: pointer; }
+
+.style_nav_src-web-components-nav- .style_list_src-web-components-nav- {
+  color: blue; }
+.style_home_src-web-pages-home- {
+  margin: 10px;
+  display: flex;
+  align-items: flex-start;
+  overflow: hidden; }
+  .style_home_src-web-pages-home- .style_left_src-web-pages-home- {
+    flex: 1 1  auto;
+    background-color: #fff;
+    margin-right: 10px; }
+  .style_home_src-web-pages-home- .style_right_src-web-pages-home- {
+    flex: 0 0 auto;
+    width: 200px; }
+    .style_home_src-web-pages-home- .style_right_src-web-pages-home- .style_info_src-web-pages-home- {
+      background-color: #fff;
+      text-align: center; }
+      .style_home_src-web-pages-home- .style_right_src-web-pages-home- .style_info_src-web-pages-home- .style_avator_src-web-pages-home- img {
+        width: 50px;
+        height: 50px; }

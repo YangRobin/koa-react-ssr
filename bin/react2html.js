@@ -13,7 +13,8 @@ require('css-modules-require-hook')({
       file: filename
     }).css,
   // camelCase: true,
-  generateScopedName: '[name]_[local]_[hash:base64:5]',
+  // generateScopedName: '[name]_[local]_[hash:base64:5]',
+  generateScopedName: '[name]_[local]_[path]',
 })
 
 console.log("robin")
@@ -46,9 +47,9 @@ function run(pagePath) {
   // generate html by rendering React component in given folder 
   fileNames.forEach((name, index) => {
     const B = require(pageFolder + name).default,
-      content = renderToString(< B />),
-      html = template.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
-    console.log(html)
+      content = renderToString(< B />);
+     const html = template.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
+    
     fs.writeFile(path.join(__dirname, targetTemplatePath + name.split('.')[0] + '.html'), html, 'utf-8', (err) => {
       if (err) {
         console.warn(err)

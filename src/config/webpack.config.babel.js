@@ -16,8 +16,8 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 const conf = {
   entry: getEntries(config.pageDir),
   plugins: [
-    new CleanWebpackPlugin(["../dist"]),
-    new ExtractTextPlugin("dd.css"),
+    new CleanWebpackPlugin(["../src/server/resource"]),
+    new ExtractTextPlugin("[name].css"),
     // new VueLoaderPlugin(),
   ],
   resolve: {
@@ -65,13 +65,13 @@ const conf = {
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
         use: [{
-          loader: "css-loader",
-          options: {
+          loader: "css-loader", options: {
             modules: true, // 指定启用css modules
-            localIdentName: '[name]_[local]_[hash:base64:5]', // 指定css的类名格式,
+            localIdentName: '[name]_[local]_[path]', // 指定css的类名格式,
           }
         }, {
           loader: 'sass-loader',
+
         }]
       })
     },
