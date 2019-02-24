@@ -11,6 +11,9 @@
         @ready="onEditorReady($event)"
       />
     </div>
+    <div id="test">
+      common.css
+    </div>
   </div>
 </template>
 <script>
@@ -49,4 +52,9 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+  .red{
+    color:red;
+  }
+</style>
 

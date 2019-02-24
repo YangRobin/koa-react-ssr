@@ -31,35 +31,35 @@ const conf = {
     filename: "[name].js",
     path: path.resolve(__dirname, "../server/resource")
   },
-  optimization: {
-    splitChunks: {
-      // chunks: 'all', // 只对入口文件处理
-      // maxAsyncRequests: 5, // 最大异步请求数， 默认5
-      // maxInitialRequests: 3, // 最大初始化请求书，默认3
-      cacheGroups: {
-        vendor: {//node_modules内的依赖库
-          chunks: "all",
-          test: /node_modules/,
-          name: "vendor",
-          minChunks: 1, //被不同entry引用次数(import),1次的话没必要提取
-          // enforce: true?
-        },
-        // priority: false, // 缓存组优先级
-        common: { // split `node_modules`目录下被打包的代码到 `page/vendor.js && .css` 没找到可打包文件的话，则没有。css需要依赖 `ExtractTextPlugin`
-          // test: /node_modules\//,
-          // filename: 'common',
-          minChunks: 2,
-          chunks: 'initial',
-          maxAsyncRequests: 5, // 最大异步请求数， 默认1
-          // maxInitialRequests: 3, // 最大初始化请求书，默认1
-          // reuseExistingChunk: true // 可设置是否重用该chunk
-        },
-      }
-    },
-    runtimeChunk: {
-      name: 'page/manifest'
-    }
-  },
+  // optimization: {
+  //   splitChunks: {
+  //     // chunks: 'all', // 只对入口文件处理
+  //     // maxAsyncRequests: 5, // 最大异步请求数， 默认5
+  //     // maxInitialRequests: 3, // 最大初始化请求书，默认3
+  //     cacheGroups: {
+  //       vendor: {//node_modules内的依赖库
+  //         chunks: "all",
+  //         test: /node_modules\//,
+  //         name: "vendor",
+  //         minChunks: 2, //被不同entry引用次数(import),1次的话没必要提取
+  //         // enforce: true?
+  //       },
+  //       // priority: false, // 缓存组优先级
+  //       common: { // split `node_modules`目录下被打包的代码到 `page/vendor.js && .css` 没找到可打包文件的话，则没有。css需要依赖 `ExtractTextPlugin`
+  //         test: /util\//,
+  //         // filename: 'common',
+  //         minChunks: 2,
+  //         chunks: 'initial',
+  //         maxAsyncRequests: 5, // 最大异步请求数， 默认1
+  //         // maxInitialRequests: 3, // 最大初始化请求书，默认1
+  //         // reuseExistingChunk: true // 可设置是否重用该chunk
+  //       },
+  //     }
+  //   },
+  //   runtimeChunk: {
+  //     name: 'page/manifest'
+  //   }
+  // },
   watch: true,
   watchOptions: {
     ignored: "controller/*.js"
@@ -172,7 +172,7 @@ fs.readdirSync(config.pageDir).forEach(i => {
         title: i,
         template: path.resolve(__dirname, "../server/resource/template/" + fileName + ".html"),
         inject: true,
-        chunks: ["common", 'vendor', i]
+        chunks: ['vendor', i]
       })
     );
   }

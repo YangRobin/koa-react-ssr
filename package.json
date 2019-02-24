@@ -61,6 +61,7 @@
     "cross-env": "^5.2.0",
     "css-modules-require-hook": "^4.2.3",
     "node-sass": "^4.11.0",
+    "terser-webpack-plugin": "^1.2.2",
     "webpack-cli": "^3.2.3",
     "webpack-dev-server": "^3.2.0"
   }
