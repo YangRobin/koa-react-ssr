@@ -31,7 +31,14 @@ li {
       float: left;
       width: 130px; }
     .style_card_src-web-components-card- .style_content_src-web-components-card- .style_text_src-web-components-card- {
-      overflow: hidden; }
+      min-height: 170px;
+      overflow: hidden;
+      position: relative; }
+      .style_card_src-web-components-card- .style_content_src-web-components-card- .style_text_src-web-components-card- .style_readBtn_src-web-components-card- {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        z-index: 1; }
   .style_card_src-web-components-card- .style_footer_src-web-components-card- {
     color: gray;
     font-size: 12px; }
@@ -46,9 +53,6 @@ li {
     font-size: 14px;
     padding: 10px;
     cursor: pointer; }
-
-.style_nav_src-web-components-nav- .style_list_src-web-components-nav- {
-  color: blue; }
 .style_home_src-web-pages-home- {
   margin: 10px;
   display: flex;

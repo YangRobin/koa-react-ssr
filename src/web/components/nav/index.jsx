@@ -9,21 +9,24 @@ export default class Nav extends React.Component {
     super(props);
     this.state = {
       data: [
-        {
-          id: 1,
-          title: 'robin',
-          content: 'this is content！ so pay a attention to this part！'
-        },
-        {
-          id: 1,
-          title: 'robin',
-          content: 'this is content！ so pay a attention to this part！'
-        }
       ]
     }
   }
   componentDidMount() {
-
+    fetch('queryAllArticle', {
+      method: 'GET',
+      param: {
+        name: "robin"
+      }, headers: new Headers({
+        'Accept': 'application/json' // 通过头指定，获取的数据类型是JSON
+      })
+    }).then(res => {
+      return res.json()
+    }).then(res => {
+      this.setState({
+        data: res,
+      })
+    })
   }
   renderList() {
     return this.state.data.map(i => {
