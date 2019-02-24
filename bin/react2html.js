@@ -42,14 +42,17 @@ function run(pagePath) {
   // const fileNames = fs.readdirSync(pagePath).filter((i) => {
   //   return i.match(/\.jsx$/);
   // })
-  const fileNames = fs.readdirSync(pagePath)
-
+  let fileNames = fs.readdirSync(pagePath)
+  // filter admin page
+  fileNames = fileNames.filter(i => {
+    return i !== "admin"
+  })
   // generate html by rendering React component in given folder 
   fileNames.forEach((name, index) => {
     const B = require(pageFolder + name).default,
       content = renderToString(< B />);
-     const html = template.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
-    
+    const html = template.replace('<div id="root"></div>', `<div id="root">${content}</div>`);
+
     fs.writeFile(path.join(__dirname, targetTemplatePath + name.split('.')[0] + '.html'), html, 'utf-8', (err) => {
       if (err) {
         console.warn(err)
