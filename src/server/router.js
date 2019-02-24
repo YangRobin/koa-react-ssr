@@ -14,7 +14,7 @@ let router = new Router();
 //controller which render html for client 
 router.get("/", home);
 router.get('/login', login);
-router.get("/admin",admin)
+router.get("/admin", admin)
 //restful api 
 router.post('/upload', upload);
 router.get("/queryUserByNameAndPassword", UserApi.queryUserByNameAndPassword)

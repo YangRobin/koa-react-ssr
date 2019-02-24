@@ -1,11 +1,11 @@
-.style_header_src-web-components-header- {
-  background-color: white;
-  height: 42px;
-  line-height: 42px; }
 .style_wrapper_src-web-components-wrapper- {
   max-width: 1200px;
   margin-left: auto;
   margin-right: auto; }
+.style_header_src-web-components-header- {
+  background-color: white;
+  height: 42px;
+  line-height: 42px; }
 body, button, ul, li, ol, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0; }

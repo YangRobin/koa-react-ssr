@@ -5,7 +5,7 @@
  */
 
 import userService from '../services/userServiceFacade'
-import articleService from  '../services/ArticleServiceFacade'
+import articleService from '../services/ArticleServiceFacade'
 
 class ArticleApi {
 
@@ -14,8 +14,17 @@ class ArticleApi {
    *   return the user information which type is json
    */
   async queryAllArticle(ctx, next) {
+    console.log(ctx.request.query)
     var res = await articleService.getAllArticle();
     ctx.body = res;
   }
+  /**
+   * qeury article by page
+   */
+  async queryArticleByPage(ctx, next) {
+    const { page, pageSize } = ctx.request.query;
+    ctx.query = await articleService.queryArticleByPage(page, pageSize)
+  }
+
 }
 export default new ArticleApi();

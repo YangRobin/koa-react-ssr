@@ -13,11 +13,12 @@ export default class Nav extends React.Component {
     }
   }
   componentDidMount() {
-    fetch('queryAllArticle', {
+    fetch('queryAllArticle?name=33', {
       method: 'GET',
-      param: {
-        name: "robin"
-      }, headers: new Headers({
+      // body: {
+      //   name: 'age'
+      // },
+       headers: new Headers({
         'Accept': 'application/json' // 通过头指定，获取的数据类型是JSON
       })
     }).then(res => {

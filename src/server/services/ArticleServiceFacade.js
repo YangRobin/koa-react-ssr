@@ -14,5 +14,14 @@ class ArticleServiceFacade {
     return query("select * from article");
   }
 
+  /**
+   * 
+   * @param {*} page 
+   * @param {*} pageSize
+   * @description query article by page 
+   */
+  getArticleByPage(page, pageSize) {
+    return query(`SELECT * FROM article  LIMIT ${pageSize} OFFSET ${pageSize * page}`)
+  }
 }
-export default  new ArticleServiceFacade();
+export default new ArticleServiceFacade();
