@@ -31,8 +31,9 @@ let config = {
     ],
   },
   devServer: {
-    // contentBase: '../web/pages/admin/src', //服务器内容 publicPath是静态文件内容
-    hot: true //启动热更新
+    contentBase: path.resolve(__dirname, '../server/resource'), //服务器内容 publicPath是静态文件内容
+    hot: true,//启动热更新
+    index: 'admin.html'
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', 'scss'],

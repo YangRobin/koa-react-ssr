@@ -17,6 +17,7 @@ router.get('/login', login);
 router.get("/admin", admin)
 //restful api 
 router.post('/upload', upload);
+router.post('/loadQuery',ArticleApi.loadQuery)
 router.get("/queryUserByNameAndPassword", UserApi.queryUserByNameAndPassword)
 router.get("/queryAllArticle", ArticleApi.queryAllArticle)
 

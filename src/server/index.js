@@ -6,14 +6,15 @@ import koaStatic from 'koa-static';
 import path from 'path';
 import koaBody from 'koa-body';
 import session from 'koa-session';
-import LoginMidware from './middleware/LoginMidware'
+import LoginMidware from './middleware/LoginMidware';
+import bodyParser from 'koa-bodyparser';
 
 const staticPath = './resource'
 const app = new Koa();
 
 
 app
- 
+  .use(bodyParser())
   .use(session({
     key: 'koa:sess', /** cookie的名称，可以不管 */
     maxAge: 7200000, /** (number) maxAge in ms (default is 1 days)，cookie的过期时间，这里表示2个小时 */
@@ -34,6 +35,7 @@ app
   }))
   // .use(LoginMidware)
   .use(router.routes())
+  .use(router.allowedMethods())
   .listen(config.port)
 
 console.log("your app is running on " + config.port)

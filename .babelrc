@@ -4,7 +4,8 @@
     "env",
     "react"
   ],
-  "plugins":[
+  "plugins": [
     "transform-decorators-legacy",
+    "transform-runtime",
   ],
 }

@@ -15,6 +15,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 console.log(getEntries(config.pageDir))
 const conf = {
   entry: getEntries(config.pageDir),
+  // target: 'node',
   plugins: [
     new CleanWebpackPlugin(["../src/server/resource"]),
     new ExtractTextPlugin("[name].css"),

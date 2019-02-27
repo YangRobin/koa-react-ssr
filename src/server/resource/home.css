@@ -1,11 +1,11 @@
-.style_wrapper_src-web-components-wrapper- {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto; }
 .style_header_src-web-components-header- {
   background-color: white;
   height: 42px;
   line-height: 42px; }
+.style_wrapper_src-web-components-wrapper- {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
 body, button, ul, li, ol, h1, h2, h3, h4, h5, h6 {
   margin: 0;
   padding: 0; }
@@ -20,6 +20,12 @@ body {
 
 li {
   list-style: none; }
+.style_nav_src-web-components-nav- .style_menu_src-web-components-nav- {
+  display: flex; }
+  .style_nav_src-web-components-nav- .style_menu_src-web-components-nav- li {
+    font-size: 14px;
+    padding: 10px;
+    cursor: pointer; }
 .style_card_src-web-components-card- {
   border-bottom: 2px solid #f2f2f2;
   padding: 10px 20px; }
@@ -47,12 +53,6 @@ li {
 
 .style_commentor_src-web-components-commentor- .style_commentorList_src-web-components-commentor- {
   color: red; }
-.style_nav_src-web-components-nav- .style_menu_src-web-components-nav- {
-  display: flex; }
-  .style_nav_src-web-components-nav- .style_menu_src-web-components-nav- li {
-    font-size: 14px;
-    padding: 10px;
-    cursor: pointer; }
 .style_home_src-web-pages-home- {
   margin: 10px;
   display: flex;

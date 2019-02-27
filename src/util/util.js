@@ -42,10 +42,3 @@ export function getEntries(dir) {
   return pages;
 }
 
-
-// export const  winProxy = (function(){
-//   if (typeof window ===  "undefined"){
-//     return null;
-//   }
-//   return window;
-// })()

@@ -16,6 +16,16 @@ class ArticleApi {
   async queryAllArticle(ctx, next) {
     console.log(ctx.request.query)
     var res = await articleService.getAllArticle();
+    var id = await articleService.addArticle({
+      type: 'article',
+      title: "test",
+      content: "robin",
+      creator: "dd",
+      createTime: "ddd",
+      gmtModify: "ddd",
+      cover: 'ddd',
+      discard: 1,
+    })
     ctx.body = res;
   }
   /**
@@ -24,6 +34,36 @@ class ArticleApi {
   async queryArticleByPage(ctx, next) {
     const { page, pageSize } = ctx.request.query;
     ctx.query = await articleService.queryArticleByPage(page, pageSize)
+  }
+
+  /**
+   * 
+   * @param {*} page 
+   * @param {*} pageSize 
+   * 
+   */
+  async loadQuery(ctx, next) {
+
+    const { page, pageSize } = JSON.parse(ctx.request.body)
+    console.dir(ctx.request.body)
+    console.log(page, pageSize)
+    let data = [];
+    let res = {}
+    try {
+      data = await articleService.loadquery(page, pageSize);
+      console.log("########",data.length)
+      if (data.length === pageSize) {
+        res.hasNext = true;
+        res.data = data.slice(0, pageSize - 1);
+      } else {
+        res.hasNext = false;
+        res.data = data;
+      }
+      ctx.body = res;
+    } catch (err) {
+      res.error = err
+      ctx.body = res;
+    }
   }
 
 }

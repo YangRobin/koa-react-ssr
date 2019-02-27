@@ -3,7 +3,6 @@ import ReactDom from 'react-dom';
 
 import Layout from '../../components/Layout/index.jsx'
 import Wrapper from '../../components/wrapper/index.jsx'
-import Card from '../../components/card/index.jsx'
 import Nav from '../../components/nav/index.jsx'
 import style from './style.scss'
 class Home extends Component {
@@ -18,24 +17,7 @@ class Home extends Component {
     console.log("this robin god ds")
   }
   componentDidMount() {
-    // window.localStorage.setItem("name", "robin");
-    // var b = 0;
-    // fetch('queryUserByNameAndPassword?name=robin&password=15595469543', {
-    //   method: 'GET',
-    //   param: {
-    //     name: "robin"
-    //   }, headers: new Headers({
-    //     'Accept': 'application/json' // 通过头指定，获取的数据类型是JSON
-    //   })
-    // }).then(res => {
 
-    //   return res.json()
-    // }).then(res => {
-    //   console.log(res)
-    //   this.setState({
-    //     name: res[0].name,
-    //   })
-    // })
   }
 
   render() {

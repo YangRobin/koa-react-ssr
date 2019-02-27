@@ -34,7 +34,7 @@ class Commentor extends React.PureComponent {
   }
 }
 
-Commentor.PropTypes = {
-  id: PropTypes.number
+Commentor.propTypes = {
+  id: PropTypes.string
 }
 export default Commentor;
