@@ -16,7 +16,7 @@ export async function login(ctx, next) {
 
 
 export async function loginIn(ctx, next) {
-  console.log(ctx.request.body)
+   
   const { name, password } = JSON.parse(ctx.request.body)
 
   var res = await userService.queryUseByNameAndPassword(name, password);

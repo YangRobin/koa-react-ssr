@@ -40,7 +40,7 @@ export default class Nav extends React.Component {
   throttle() {
     window.onscroll = () => {
       setTimeout(() => {
-        console.log("robin")
+         
       }, 3000)
     }
   }

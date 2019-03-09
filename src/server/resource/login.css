@@ -29,11 +29,6 @@ body {
 
 li {
   list-style: none; }
-.style_card_src-web-pages-login- {
-  padding-top: 100px;
-  width: 500px;
-  min-height: 500px;
-  margin: 0 auto; }
 .style_loginCard_src-web-components-login- {
   background: white;
   justify-content: center;
@@ -66,3 +61,8 @@ li {
       color: white;
       border-radius: 6px;
       outline: none; }
+.style_card_src-web-pages-login- {
+  padding-top: 100px;
+  width: 500px;
+  min-height: 500px;
+  margin: 0 auto; }

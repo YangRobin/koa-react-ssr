@@ -72,7 +72,7 @@ export default {
                   on: {
                     click: () => {
                       // this.show(params.index);
-                      console.log(params);
+                       ;
                     }
                   }
                 },
@@ -88,7 +88,7 @@ export default {
                   on: {
                     click: () => {
                       // this.remove(params.index);
-                      console.log(params);
+                       ;
                     }
                   }
                 },

@@ -14,7 +14,7 @@ class ArticleApi {
    *   return the user information which type is json
    */
   async queryAllArticle(ctx, next) {
-    console.log(ctx.request.query)
+     
     var res = await articleService.getAllArticle();
     var id = await articleService.addArticle({
       type: 'article',

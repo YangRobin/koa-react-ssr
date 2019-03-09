@@ -17,7 +17,7 @@ require('css-modules-require-hook')({
   generateScopedName: '[name]_[local]_[path]',
 })
 
-console.log("robin")
+ 
 
 import React from 'react';
 import {

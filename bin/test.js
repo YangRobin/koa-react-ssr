@@ -89,7 +89,7 @@ const config = {
 function prepareHtmlPlugin() {
   fs.readdirSync(path.resolve(__dirname, pagePath)).forEach(i => {
     const fileName = i.split(".")[0];
-    console.log(i)
+     
     config.plugins.push(
       new HtmlWebpackPlugin({
         filename: fileName + ".html",
@@ -106,10 +106,10 @@ function run() {
   prepareHtmlPlugin();
   webpack(config, (err, stats) => {
     if (err || stats.hasErrors()) {
-      console.log(err)
-      console.log(stats.compilation.errors)
+       
+       
     }
-    console.log('generate html succuessfully!')
+     
   });
 }
 run();

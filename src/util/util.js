@@ -25,7 +25,7 @@ export function query(sql, values) {
     })
   })
     .catch((error) => {
-      console.log(error, 'Promise error');
+       ;
     });
 }
 

@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
-
 import Layout from '../../components/Layout/index.jsx'
 import Wrapper from '../../components/wrapper/index.jsx'
 import Nav from '../../components/nav/index.jsx'
 import style from './style.scss'
+import store from './store.js'
+import { Provider } from 'react-redux'
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -14,12 +15,11 @@ class Home extends Component {
     }
   }
   test() {
-    console.log("this robin god ds")
+     
   }
   componentDidMount() {
 
   }
-
   render() {
 
     return (
@@ -46,17 +46,22 @@ class Home extends Component {
             this is tool bar
             </div> */}
         </Wrapper>
-
       </div>
     )
   }
 }
+const App = Layout(Home)
+if (typeof window !== "undefined") {
+  // Grab the state from a global variable injected into the server-generated HTML
+  const preloadedState = window.__PRELOADED_STATE__
+  // Allow the passed state to be garbage-collected
+  delete window.__PRELOADED_STATE__
 
-
-const P = Layout(Home)
+  ReactDom.hydrate(
+    <Provider store={store}>
+      <App />
+    </Provider>, document.getElementById('root'))
+}
 export default Layout(Home);
 
-if (typeof window !== "undefined") {
-  ReactDom.render(<P />, document.getElementById('root'))
-}
 

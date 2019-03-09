@@ -35,7 +35,7 @@ export default {
     };
   },
   updated() {
-    console.log(this.show)
+     
   },
   methods: {
     close() {

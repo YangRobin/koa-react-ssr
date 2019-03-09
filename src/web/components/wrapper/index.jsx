@@ -10,7 +10,7 @@ export default class Wrapper extends React.PureComponent{
   }
   render(){
 
-    console.log(this.props)
+     
     return(
       <div className={style.wrapper}> 
         {this.props.children}

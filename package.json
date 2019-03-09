@@ -50,6 +50,8 @@
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-markdown": "^4.0.6",
+    "react-redux": "^6.0.1",
+    "redux": "^4.0.1",
     "sass": "^1.17.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1",

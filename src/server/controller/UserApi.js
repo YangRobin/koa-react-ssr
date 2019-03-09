@@ -14,7 +14,7 @@ class UserApi {
    *   return the user information which type is json
    */
   async queryUserByNameAndPassword(ctx, next) {
-    console.log(ctx.request.query)
+     
     var res = await userService.queryUseByNameAndPassword('robin', '15595469543');
     ctx.body = res;
   }

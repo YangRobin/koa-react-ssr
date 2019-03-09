@@ -4,9 +4,10 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import Layout from '../../components/Layout/index.jsx'
 import Wrapper from '../../components/wrapper/index.jsx'
+import LoginCard from '../../components/login/index.jsx';
 import style from './style.scss'
 
-import LoginCard from '../../components/login/index.jsx';
+
 class Login extends Component {
   render() {
     return (

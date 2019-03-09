@@ -10,7 +10,7 @@ class Card extends React.Component {
 
   constructor(props) {
     super(props)
-    console.log(this.props.data)
+     
     this.state = {
       content: '',
       isOpened: false

@@ -76,7 +76,7 @@ export default {
               return res.file;
             }
             // change: (xhr, formData) => {
-            //   console.log(formData)
+            //    
             //   // xhr.setRequestHeader('myHeader','myValue')
             //   // formData.append('token', 'myToken')
             // } // 可选参
@@ -109,7 +109,7 @@ export default {
           return res.json();
         })
         .then(res => {
-          console.log(res);
+           ;
         });
     },
     prepareParam() {
@@ -125,16 +125,16 @@ export default {
     },
     publishArticle() {},
     onEditorBlur(quill) {
-      console.log("editor blur!", quill);
+       ;
     },
     onEditorFocus(quill) {
-      console.log("editor focus!", quill);
+       ;
     },
     onEditorReady(quill) {
-      console.log("editor ready!", quill);
+       ;
     },
     onEditorChange({ quill, html, text }) {
-      console.log("editor change!", quill, html, text);
+       ;
       this.content = html;
     }
   },

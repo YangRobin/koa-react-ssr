@@ -12,7 +12,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 // const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
-console.log(getEntries(config.pageDir))
+ 
 const conf = {
   entry: getEntries(config.pageDir),
   // target: 'node',

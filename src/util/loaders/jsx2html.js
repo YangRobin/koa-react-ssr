@@ -23,7 +23,7 @@ export default function jsx2html(source) {
   if (this.resourcePath.indexOf(filePath) > -1) {
     fs.readFile(path.join(__dirname, options.template), function (error, data) {
       if (error) {
-        console.log(error)
+         
       } else {
 
         let html = data.toString();
@@ -33,10 +33,10 @@ export default function jsx2html(source) {
         html = html.replace('<div id="root"></div>', `<div id="root">${content}</div><script src="./${fileName+'.js'}"></script>`);
         fs.writeFile(path.join(__dirname, options.outputPath + '/' + fileName + '.html'), html, 'utf8', function (error) {
           if (error) {
-            console.log(error);
+             ;
             return false;
           }
-          console.log('write html succecesfully !');
+           ;
         })
       }
     })
