@@ -1,16 +1,17 @@
 
 
-const allowUrl = ['/', '/login','/queryAllArticle'];
+const allowUrl = ['/', '/login', '/api/loadQuery', '/api/enter'];
 
 export default async function LoginMidware(ctx, next) {
-  console.log(ctx.url)
-  if (allowUrl.indexOf(ctx.url) > -1) {
-   
+  const ck = ctx.cookies.get('koa:sess')
+  console.log("##",ck)
+  if (ck) {
     await next();
-    // next();
-    // next();
   } else {
-    ctx.redirect('/login');
-    // next();
+    if (allowUrl.indexOf(ctx.url) > -1) {
+      await next();
+    } else {
+      ctx.redirect('/login');
+    }
   }
 }

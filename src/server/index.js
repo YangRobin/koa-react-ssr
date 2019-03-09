@@ -12,9 +12,13 @@ import bodyParser from 'koa-bodyparser';
 const staticPath = './resource'
 const app = new Koa();
 
-
+app.keys = ['some secret hurr'];
 app
-  .use(bodyParser())
+  // .use(bodyParser({
+  //   extendTypes: {
+  //     json: ['application/x-javascript'] // will parse application/x-javascript type body as a JSON string
+  //   }
+  // }))
   .use(session({
     key: 'koa:sess', /** cookie的名称，可以不管 */
     maxAge: 7200000, /** (number) maxAge in ms (default is 1 days)，cookie的过期时间，这里表示2个小时 */
@@ -26,14 +30,15 @@ app
   .use(koaStatic(
     path.join(__dirname, staticPath)
   ))
-  
+
   .use(koaBody({
+    json: true,
     multipart: true,
     formidable: {
       maxFileSize: 200 * 1024 * 1024 // 设置上传文件大小最大限制，默认2M
     }
   }))
-  // .use(LoginMidware)
+  .use(LoginMidware)
   .use(router.routes())
   .use(router.allowedMethods())
   .listen(config.port)

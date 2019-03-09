@@ -17,8 +17,10 @@ export function get(url, param) {
 export function post(url, param) {
   return fetch(url, {
     method: "POST",
+    mode:'cors',
     headers: new Headers({
-      'Accept': 'application/json',
+      // 'Accept': 'application/json',
+      // 'Content-Type': 'application/json'
     }),
     body: JSON.stringify(param)
   }).then(res => {

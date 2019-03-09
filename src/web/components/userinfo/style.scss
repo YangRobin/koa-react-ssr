@@ -1,0 +1,19 @@
+
+
+.userInfo{
+  display: flex;
+  justify-content: start;
+  align-items: flex-end;
+  .avator{
+    width: 40px;
+    border-radius: 50%;
+    border: 1.5px solid #59aede;
+    padding: 1px;
+  
+  }
+  .detail{
+    overflow: hidden;
+   
+   
+  }
+}

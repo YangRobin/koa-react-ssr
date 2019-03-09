@@ -19,8 +19,8 @@ class ArticleServiceFacade {
    * @param {*} pageSize
    * @description query article by page 
    */
-  getArticleByPage(page, pageSize) {
-    return query(`SELECT * FROM article  LIMIT ${pageSize} OFFSET ${pageSize * page}`)
+  queryArticleByPage(page, pageSize) {
+    return query(`SELECT * FROM article  LIMIT ${pageSize} OFFSET ${pageSize * (page - 1)}`)
   }
 
   /**
@@ -31,11 +31,13 @@ class ArticleServiceFacade {
   addArticle(article) {
     let sql = `
     INSERT INTO
-      article (id,title,type,creator,content,create_time,cover,gmt_modify,discard) 
+      article (id,title,type,media_type,sub_type,creator,content,create_time,cover,gmt_modify,discard) 
     VALUES 
       (0,
       '${article.title}',
       '${article.type}',
+      '${article.mediaType}',
+      '${article.subType}',
       '${article.creator}',
       '${article.content}',
       '${article.createTime}',
@@ -87,16 +89,15 @@ class ArticleServiceFacade {
   }
 
   loadquery(page, pageSize) {
-    console.log(page,pageSize)
     let sql = `
       SELECT 
-        * 
+        *  
       FROM 
         article 
       LIMIT
         ${pageSize}
       OFFSET
-        ${(page-1) * (pageSize)}
+        ${(page - 1) * (pageSize)}
     `
     return query(sql);
   }

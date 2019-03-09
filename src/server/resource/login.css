@@ -1,0 +1,68 @@
+.style_header_src-web-components-header- {
+  background-color: white;
+  height: 42px;
+  line-height: 42px; }
+  .style_header_src-web-components-header- .style_logo_src-web-components-header- {
+    font-size: 13px;
+    font-weight: 600; }
+.style_wrapper_src-web-components-wrapper- {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; }
+.style_footer_src-web-components-footer- {
+  text-align: center;
+  color: #999999;
+  font-size: 15px;
+  padding: 10px; }
+body, button, ul, li, ol, h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0; }
+
+body {
+  background-color: #F6F6F6; }
+
+.style_wrapper_src-web-components-Layout- {
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto; }
+
+li {
+  list-style: none; }
+.style_card_src-web-pages-login- {
+  padding-top: 100px;
+  width: 500px;
+  min-height: 500px;
+  margin: 0 auto; }
+.style_loginCard_src-web-components-login- {
+  background: white;
+  justify-content: center;
+  padding: 20px 50px;
+  box-shadow: 1px 1px 38px 5px #ebebeb; }
+  .style_loginCard_src-web-components-login- .style_loginTitle_src-web-components-login- {
+    text-align: center;
+    border-bottom: 1px solid #f3f3f3;
+    padding: 10px; }
+  .style_loginCard_src-web-components-login- .style_formItem_src-web-components-login- {
+    height: 50px;
+    line-height: 50px;
+    display: flex;
+    color: #bebaba; }
+    .style_loginCard_src-web-components-login- .style_formItem_src-web-components-login- label {
+      width: 100px;
+      text-align: right; }
+    .style_loginCard_src-web-components-login- .style_formItem_src-web-components-login- .style_leftInput_src-web-components-login- {
+      margin-left: 22px; }
+      .style_loginCard_src-web-components-login- .style_formItem_src-web-components-login- .style_leftInput_src-web-components-login- input {
+        padding: 5px;
+        border-radius: 5px;
+        border: 1px solid #cdcfd1;
+        outline: none; }
+    .style_loginCard_src-web-components-login- .style_formItem_src-web-components-login- button {
+      width: 167px;
+      padding: 5px;
+      border: none;
+      background: #22acff;
+      color: white;
+      border-radius: 6px;
+      outline: none; }

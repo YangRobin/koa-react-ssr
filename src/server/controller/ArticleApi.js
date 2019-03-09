@@ -32,8 +32,12 @@ class ArticleApi {
    * qeury article by page
    */
   async queryArticleByPage(ctx, next) {
-    const { page, pageSize } = ctx.request.query;
-    ctx.query = await articleService.queryArticleByPage(page, pageSize)
+    const { page, pageSize } = JSON.parse(ctx.request.body);
+    const res = await articleService.queryArticleByPage(page, pageSize)
+    ctx.body = {
+      success: true,
+      result: res,
+    }
   }
 
   /**
@@ -45,13 +49,14 @@ class ArticleApi {
   async loadQuery(ctx, next) {
 
     const { page, pageSize } = JSON.parse(ctx.request.body)
-    console.dir(ctx.request.body)
-    console.log(page, pageSize)
+
     let data = [];
     let res = {}
     try {
       data = await articleService.loadquery(page, pageSize);
-      console.log("########",data.length)
+      for (let i = 0; i < data.length; i++) {
+        data[i].creator = await userService.queryUserById(data[i].creator);
+      }
       if (data.length === pageSize) {
         res.hasNext = true;
         res.data = data.slice(0, pageSize - 1);
@@ -66,5 +71,20 @@ class ArticleApi {
     }
   }
 
+
+  async addArticle(ctx, next) {
+    // articleService.addArticle()
+    const article = JSON.parse(ctx.request.body)
+    const user = ctx.session.user
+    article.discard = 0
+    article.creator = user.id;
+    let res = await articleService.addArticle(article);
+    if (res) {
+      ctx.body = {
+        success: true,
+        id: res.insertId
+      }
+    }
+  }
 }
 export default new ArticleApi();

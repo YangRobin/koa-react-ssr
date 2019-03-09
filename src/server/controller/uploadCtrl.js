@@ -1,9 +1,20 @@
 
 import fs from 'fs'
-import os from 'os'
+import path from 'path';
+import { writeFile } from '../../util/util'
 
 
-export default async function upload (ctx, next) {
-  console.log(ctx.request.files.file)
-  ctx.body = "upload"
+
+export default async function upload(ctx, next) {
+  const file = ctx.request.files.file;
+  console.log(file)
+
+  const tmpdir = path.join(__dirname, "../resource/img");
+  const filePath = path.join(tmpdir, file.name);
+  const reader = fs.createReadStream(file.path);
+  const writer = fs.createWriteStream(filePath);
+  reader.pipe(writer);
+
+  ctx.body = { file: "/img/" + file.name }
 }
+

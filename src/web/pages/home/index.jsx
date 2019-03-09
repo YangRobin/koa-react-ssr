@@ -40,8 +40,13 @@ class Home extends Component {
                 </div>
               </div>
             </div>
+
           </div>
+          {/* <div className={style.toolBar}>
+            this is tool bar
+            </div> */}
         </Wrapper>
+
       </div>
     )
   }

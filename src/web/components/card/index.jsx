@@ -5,10 +5,12 @@ import React from 'react';
 import style from './style.scss'
 import Commentor from '../commentor/index.jsx'
 import Mark from 'react-markdown';
+import UserInfo from '../userinfo/index.jsx'
 class Card extends React.Component {
 
   constructor(props) {
     super(props)
+    console.log(this.props.data)
     this.state = {
       content: '',
       isOpened: false
@@ -36,13 +38,20 @@ class Card extends React.Component {
 
   render() {
     // const children = this.props.children;
+    const user = this.props.data.creator[0];
     return (
       <div className={style.card}>
+        <UserInfo data={user} />
         <h3 className={style.title}>{this.props.data.title}</h3>
         <div className={style.content}>
-          <img src="./avator.png" alt="" />
+          {
+            this.state.isOpened ? '' : <img src="./avator.png" alt="" />
+          }
           <div className={style.text}>
-            <Mark source={this.state.content} />
+            {/* <Mark source={this.state.content} /> */}
+            <div dangerouslySetInnerHTML={{
+              __html: this.state.content
+            }}></div>
             {
               this.state.isOpened ? <button className={style.readBtn} onClick={() => { this.closeArticle() }}>
                 收起
@@ -67,3 +76,5 @@ Card.propTypes = {
 }
 
 export default Card;
+
+

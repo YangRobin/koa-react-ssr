@@ -4,15 +4,38 @@ body,button,ul ,li ,ol,h1,h2,h3,h4,h5,h6{
   margin: 0;
   padding:0;
 }
+a{
+  color:#314659;
+  text-decoration: none;
+}
 
 body{
-  background-color:#F6F6F6 ;
+  background-color:#F6F6F6 !important;
 }
+
+input[type="text"]{
+  /* padding: 6px;
+  border-radius: 6px;
+  outline: none;
+  border: 1px solid #d9d9d9;
+  background: #fcfcfc; */
+}
+input::-webkit-input-placeholder {
+  /* placeholder颜色  */
+  color: #caced4;
+  /* placeholder字体大小  */
+  
+}
+
 
 .wrapper{
   width:1200px; 
   margin-left: auto;
   margin-right:auto; 
+}
+.flex-wrapper{
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 li{

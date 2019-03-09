@@ -42,3 +42,15 @@ export function getEntries(dir) {
   return pages;
 }
 
+export function writeFile(file) {
+  const tmpdir = path.join(__dirname, "../server/resource/img");
+  const filePath = path.join(tmpdir, file.name);
+  const reader = fs.createReadStream(file.path);
+  const writer = fs.createWriteStream(filePath);
+  try {
+    reader.pipe(writer);
+    return filePath;
+  } catch (err) {
+    return "file upload error";
+  }
+}

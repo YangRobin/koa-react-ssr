@@ -10,9 +10,11 @@ export default class Header extends React.PureComponent {
     return (
       <div className={style.header}>
         <Wrapper>
-          <div>this is  header</div>
+          <div>
+            <span className={style.logo}>DISCOVER THE POWER  </span>
+          </div>
         </Wrapper>
       </div>
-      )
+    )
   }
 }

@@ -11,10 +11,11 @@ export default class Nav extends React.Component {
       data: [
       ],
       page: 1,
+      isMoreShow: false,
     }
   }
   componentDidMount() {
-    post("/loadQuery", {
+    post("/api/loadQuery", {
       page: this.state.page,
       pageSize: 6,
     }).then(res => {
@@ -45,7 +46,7 @@ export default class Nav extends React.Component {
   }
 
   loadArticle() {
-    post("/loadQuery", {
+    post("/api/loadQuery", {
       page: this.state.page,
       pageSize: 6,
     }).then(res => {
@@ -61,13 +62,17 @@ export default class Nav extends React.Component {
   }
   renderList() {
     return this.state.data.map(i => {
-      console.log("$$$$$$$$$$$$$$$$$$$$$$$$$$", i)
       return (
         <Card
           key={i.id}
           data={i}
         />
       )
+    })
+  }
+  showMore() {
+    this.setState({
+      isMoreShow: !this.state.isMoreShow,
     })
   }
   render() {
@@ -77,7 +82,17 @@ export default class Nav extends React.Component {
           <li>文章</li>
           <li>视频</li>
           <li>图片</li>
+          <li className={style.showMore}
+            onClick={() => { this.showMore() }}
+          ><span>more..</span></li>
         </ul>
+        {
+          this.state.isMoreShow ? (
+            <div>
+              更多
+            </div>
+          ) : ''
+        }
         <div className={style.list}>
           {
             this.renderList()

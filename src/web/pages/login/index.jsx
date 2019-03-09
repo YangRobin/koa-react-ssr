@@ -2,25 +2,30 @@
 
 import React, { Component } from 'react';
 import ReactDom from 'react-dom';
+import Layout from '../../components/Layout/index.jsx'
+import Wrapper from '../../components/wrapper/index.jsx'
+import style from './style.scss'
 
-export default class Login extends Component {
+import LoginCard from '../../components/login/index.jsx';
+class Login extends Component {
   render() {
     return (
       <div>
-      
-        <h3>this is login page</h3>
-        <div>
-          <form action="/upload " method="post" enctype="multipart/form-data">
-            <input type="file" name="file" multiple="multiple" />
-            <input type="submit" value="sbmt" />
-          </form>
+        <Wrapper >
+          <div className={style.card}>
+            <LoginCard></LoginCard>
+          </div>
+        </Wrapper>
 
-        </div>
       </div>
     )
   }
 }
 
+
+const P = Layout(Login)
+export default Layout(Login);
+
 if (typeof window !== "undefined") {
-  ReactDom.render(<Login />, document.getElementById('root'))
+  ReactDom.render(<P />, document.getElementById('root'))
 }

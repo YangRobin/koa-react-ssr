@@ -22,5 +22,9 @@ class UserServiceFacade {
     return query(sql);
   }
 
+  queryUserById(id) {
+    return query(`select * from  user where id =${id}`)
+  }
+
 }
-export default  new UserServiceFacade();
+export default new UserServiceFacade();

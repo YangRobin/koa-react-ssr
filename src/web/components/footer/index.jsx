@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Wrapper from '../wrapper/index.jsx'
+import style from './style.scss'
 
 export default class Footer extends React.PureComponent {
 
@@ -9,7 +10,9 @@ export default class Footer extends React.PureComponent {
     return (
       <div>
         <Wrapper>
-          this is fooer
+          <div className={style.footer}>
+             All copyright reserved by Robin.
+          </div>
         </Wrapper>
       </div>
     )

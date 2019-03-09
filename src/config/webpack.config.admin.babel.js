@@ -33,7 +33,15 @@ let config = {
   devServer: {
     contentBase: path.resolve(__dirname, '../server/resource'), //服务器内容 publicPath是静态文件内容
     hot: true,//启动热更新
-    index: 'admin.html'
+    index: 'admin.html',
+    proxy: {
+
+      // "/upload": "http://localhost:3000",
+      "/api": {
+        target: "http://localhost:3000",
+        
+      }
+    }
   },
   resolve: {
     extensions: ['.js', '.vue', '.json', 'scss'],
@@ -151,7 +159,8 @@ let config = {
       //   loader: 'vue-loader',
       // }
     ]
-  }
+  },
+
 }
 
 export default config 

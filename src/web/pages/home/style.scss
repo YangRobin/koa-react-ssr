@@ -7,7 +7,7 @@
   overflow: hidden;
   .left{
     flex:1 1  auto;
-    background-color: #fff;
+   
     margin-right: 10px;
   }
   .right{
@@ -25,4 +25,13 @@
       }
     }
   }
+}
+
+.toolBar{
+  position: absolute;
+    left: -95px;
+    width: 100px;
+    top: 0;
+    min-height: 701px;
+    background-color: #fff;
 }
