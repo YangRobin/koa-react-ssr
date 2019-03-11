@@ -21,9 +21,9 @@ class Commentor extends React.PureComponent {
       <div className={style.commentor}>
         <div className={style.header}>
           <ul className={style.operator}>
-            <li><span>点赞</span></li>
+            {/* <li><span>点赞</span></li>
             <li><span>分享</span></li>
-            <li onClick={() => { this.openCommentList() }}><span className={style.commenterBtn}>评论</span></li>
+            <li onClick={() => { this.openCommentList() }}><button className={style.commenterBtn}>评论</button></li> */}
           </ul>
           {
             this.props.isOpened ? <span onClick={() => { this.props.close() }}>
@@ -39,8 +39,8 @@ class Commentor extends React.PureComponent {
               <div className={style.commentorInput} contentEditable={true}>
                 text
                 </div>
-              <div>
-                <button>发表</button>
+              <div className={style.publish}>
+                <button >发表</button>
               </div>
             </div>
           </div> : ''

@@ -81,11 +81,11 @@ export default class Nav extends React.Component {
       <div className={style.nav}>
         <ul className={style.menu}>
           <li>文章</li>
-          <li>视频</li>
+          {/* <li>视频</li>
           <li>图片</li>
           <li className={style.showMore}
             onClick={() => { this.showMore() }}
-          ><span>更多..</span></li>
+          ><span>更多..</span></li> */}
         </ul>
         {
           this.state.isMoreShow ? (

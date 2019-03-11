@@ -36,7 +36,7 @@ export function getEntries(dir) {
   fs.readdirSync(path.resolve(dir)).forEach(i => {
 
     if (i !== "admin") {
-      pages[i] = dir + "/" + i + "/index.jsx"
+      pages[i] = dir + "/" + i + "/index.jsx";
     }
   })
   return pages;

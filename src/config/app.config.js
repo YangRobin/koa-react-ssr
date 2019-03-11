@@ -19,7 +19,7 @@ const config = {
     // host: '39.98.57.178',
     user: 'root',
     password: 'root',
-    database: 'st',
+    database: 'xyzy',
   }
 }
 

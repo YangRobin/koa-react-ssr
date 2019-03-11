@@ -4,10 +4,24 @@
   margin: 10px 0;
   padding: 10px 0;
   border-top: 1px solid #f6f6f6;
+  .publish{
+    text-align: right;
+    margin:10px;
+    button{
+      background: #ff2369;
+      color: white;
+      border: none;
+      padding: 2px 5px;
+      border-radius: 4px;
+      outline: none;
+      cursor: pointer;
+    }
+  }
   .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+   
     .operator{
       display: flex;
       li{
@@ -26,9 +40,12 @@
   
   .commentorList{
     padding: 10px;
+   
     .commentorInput{
+      margin:10px;
       border: 1px solid #dddddd;
       min-height: 50px;
+      padding: 5px;
       :active{
         border:1px solid red;
       }

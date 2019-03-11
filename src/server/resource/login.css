@@ -1,3 +1,8 @@
+.style_wrapper_src-web-components-wrapper- {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; }
 .style_header_src-web-components-header- {
   background-color: white;
   height: 42px;
@@ -5,11 +10,6 @@
   .style_header_src-web-components-header- .style_logo_src-web-components-header- {
     font-size: 13px;
     font-weight: 600; }
-.style_wrapper_src-web-components-wrapper- {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative; }
 .style_footer_src-web-components-footer- {
   text-align: center;
   color: #999999;

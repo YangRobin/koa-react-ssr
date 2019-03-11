@@ -49,7 +49,7 @@ class LoginCard extends React.PureComponent {
           <div className={style.formItem}>
             <label htmlFor="">password  </label>
             <div className={style.leftInput}>
-              <input onChange={this.passwordChange} value={this.state.password} type="text" />
+              <input type="password" onChange={this.passwordChange} value={this.state.password}  />
             </div>
           </div>
           <div className={style.formItem}>
