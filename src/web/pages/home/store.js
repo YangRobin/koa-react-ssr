@@ -2,12 +2,18 @@
 
 import { createStore } from 'redux';
 
-const state = {}
 
-const reducer = (state, action) => {
+
+const reducer = (state = {
+  count:1,
+  mediaType:'article',
+  filters: {
+    name: "robin"
+  }
+}, action) => {
   switch (action.type) {
-    case "ADD": return {};
-    default: return {}
+    case "ADD": return {...state ,count:state.count+=1}
+    default: return state
   }
 }
 

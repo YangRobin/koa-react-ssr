@@ -12,7 +12,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 // const path = require('path');
 // const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const VueLoaderPlugin = require('vue-loader/lib/plugin')
- 
+
 const conf = {
   entry: getEntries(config.pageDir),
   // target: 'node',
@@ -82,7 +82,23 @@ const conf = {
         }]
       })
     },
-
+    {
+      test: /\.css$/,
+      use: ExtractTextPlugin.extract({ // 使用ExtractTextWebpackPlugin的extract方法
+        fallback: {// 这里表示不提取的时候，使用什么样的配置来处理css
+          loader: 'style-loader',
+          options: {
+            singleton: true // 表示将页面上的所有css都放到一个style标签内
+          }
+        },
+        use: [ // 提取的时候，继续用下面的方式处理
+          {
+            loader: 'css-loader',
+          
+          }
+        ]
+      })
+    },
     // {
     //   test: /\.scss$/,
     //   exclude: /node_modules/,
@@ -151,7 +167,7 @@ const conf = {
       exclude: /node_modules/,
       loader: "babel-loader",
       query: {
-        presets: ["es2015", "react" ,"stage-0"]
+        presets: ["es2015", "react", "stage-0"]
       }
     }
     ]

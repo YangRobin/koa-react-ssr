@@ -42,5 +42,6 @@ app
   .use(router.routes())
   .use(router.allowedMethods())
   .listen(config.port)
+  console.log("server run on "+config.port)
 
  

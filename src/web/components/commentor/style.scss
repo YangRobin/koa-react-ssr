@@ -1,10 +1,37 @@
 
 
 .commentor {
-  .operator{
+  margin: 10px 0;
+  padding: 10px 0;
+  border-top: 1px solid #f6f6f6;
+  .header{
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .operator{
+      display: flex;
+      li{
+        span{
+          padding: 2px 5px;
+          cursor: pointer;
+        }
+        .commenterBtn{
+          border: 1px solid #287bff;
+          color: #287bff;
+          border-radius: 5px;
+        }
+      }
+    }
   }
+  
   .commentorList{
-    color:red;
+    padding: 10px;
+    .commentorInput{
+      border: 1px solid #dddddd;
+      min-height: 50px;
+      :active{
+        border:1px solid red;
+      }
+    }
   }
 }

@@ -19,15 +19,31 @@ class Commentor extends React.PureComponent {
   render() {
     return (
       <div className={style.commentor}>
-        <ul className={style.operator}>
-          <li>点赞</li>
-          <li>分享</li>
-          <li onClick={() => { this.openCommentList() }}>评论</li>
-        </ul>
+        <div className={style.header}>
+          <ul className={style.operator}>
+            <li><span>点赞</span></li>
+            <li><span>分享</span></li>
+            <li onClick={() => { this.openCommentList() }}><span className={style.commenterBtn}>评论</span></li>
+          </ul>
+          {
+            this.props.isOpened ? <span onClick={() => { this.props.close() }}>
+              收起
+            </span> : <span onClick={() => { this.props.open() }}>
+                展开阅读
+            </span>
+          }
+        </div>
         {
-          this.state.commentVisible ? <div className={style.commentList}>
-            comment list
-           </div> : ''
+          this.state.commentVisible ? <div className={style.commentorList}>
+            <div>
+              <div className={style.commentorInput} contentEditable={true}>
+                text
+                </div>
+              <div>
+                <button>发表</button>
+              </div>
+            </div>
+          </div> : ''
         }
       </div>
     )
@@ -35,6 +51,8 @@ class Commentor extends React.PureComponent {
 }
 
 Commentor.propTypes = {
-  id: PropTypes.string
+  id: PropTypes.string,
+  open: PropTypes.func,
+  close: PropTypes.func,
 }
 export default Commentor;

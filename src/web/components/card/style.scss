@@ -4,6 +4,10 @@
   border-bottom: 2px solid #f2f2f2;
   background: #ffffff;
   padding: 10px 20px;
+  font-size: 16px;
+  letter-spacing: 0.4px;
+  font-weight: 300;
+
   .title{
     font-size: 16px;
     margin: 10px 0;
@@ -12,10 +16,11 @@
     overflow: hidden;
     img{
       float: left;
-      width:130px;
+      width:200px;
     }
-    .text{
-      min-height: 170px;
+    .text{ 
+      padding-left: 10px;
+      min-height: 120px;
       overflow: hidden;
       position: relative;
       .readBtn{
@@ -23,6 +28,13 @@
         bottom: 0;
         right: 0;
         z-index: 1;
+        background: #287bff;
+        border: none;
+        color: white;
+        padding: 4px 2px;
+        border-radius: 3px;
+        outline: none;
+        width: 83px;
       }
     }
   }

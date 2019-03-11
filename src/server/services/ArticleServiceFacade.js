@@ -99,6 +99,7 @@ class ArticleServiceFacade {
       OFFSET
         ${(page - 1) * (pageSize)}
     `
+     query(query).then(res=>{console.log(res)})
     return query(sql);
   }
 }

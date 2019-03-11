@@ -1,0 +1,25 @@
+
+.filter{
+  background: #ffffff;
+  margin:5px 0;
+  font-size: 13px;
+  padding:10px;
+  .type{
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    li{
+      float: left;
+      padding: 5px 10px;
+    }
+  }
+  .subType{
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    li{
+      float: left;
+      padding: 5px 10px;
+    }
+  }
+}

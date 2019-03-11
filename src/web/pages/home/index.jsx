@@ -2,10 +2,14 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import Layout from '../../components/Layout/index.jsx'
 import Wrapper from '../../components/wrapper/index.jsx'
-import Nav from '../../components/nav/index.jsx'
+import Nav from '../../components/nav/index.jsx';
+import Brief from '../../components/brief/index.jsx';
 import style from './style.scss'
 import store from './store.js'
 import { Provider } from 'react-redux'
+import 'highlight.js/styles/atom-one-light.css'
+// import 'quill/dist/quill.snow.css'
+import '../../common/common.css'
 class Home extends Component {
   constructor(props) {
     super(props);
@@ -15,7 +19,7 @@ class Home extends Component {
     }
   }
   test() {
-     
+
   }
   componentDidMount() {
 
@@ -30,15 +34,7 @@ class Home extends Component {
               <Nav />
             </div>
             <div className={style.right}>
-              <div className={style.info}>
-                <div className={style.avator}>
-                  <img src="avator.png" alt="avator" />
-                </div>
-                <div className="brief">
-                  <h3>name</h3>
-                  <p>robin is god!</p>
-                </div>
-              </div>
+              <Brief />
             </div>
 
           </div>

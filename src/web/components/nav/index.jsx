@@ -2,6 +2,7 @@
 import React from 'react';
 import style from './style.scss';
 import Card from '../card/index.jsx'
+import Filter from '../../components/filter/index.jsx'
 import { isScrollBottom, post, get } from '../../../util/request';
 export default class Nav extends React.Component {
 
@@ -40,7 +41,7 @@ export default class Nav extends React.Component {
   throttle() {
     window.onscroll = () => {
       setTimeout(() => {
-         
+
       }, 3000)
     }
   }
@@ -84,13 +85,11 @@ export default class Nav extends React.Component {
           <li>图片</li>
           <li className={style.showMore}
             onClick={() => { this.showMore() }}
-          ><span>more..</span></li>
+          ><span>更多..</span></li>
         </ul>
         {
           this.state.isMoreShow ? (
-            <div>
-              更多
-            </div>
+            <Filter />
           ) : ''
         }
         <div className={style.list}>

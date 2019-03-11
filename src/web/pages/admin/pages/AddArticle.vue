@@ -1,6 +1,6 @@
 <template>
   <div class="add-article">
-      <Back/>
+    <Back/>
     <div class="page-title">
       <h3>Add article page</h3>
     </div>
@@ -30,6 +30,7 @@
         </Select>
       </FormItem>
       <quillEditor
+        ref="myTextEditor"
         v-model="content"
         :options="editorOption"
         @blur="onEditorBlur($event)"
@@ -37,6 +38,9 @@
         @ready="onEditorReady($event)"
         height="500px"
       />
+      <div class="quill-code">
+        <code class="hljs" v-html="contentCode"></code>
+      </div>
       <Button @click="saveArticle">提交</Button>
       <Button type="primary" @click="publishArticle">提交</Button>
     </Form>
@@ -48,11 +52,21 @@ import { quillEditor, Quill } from "vue-quill-editor"; //调用编辑器
 import "quill/dist/quill.core.css";
 import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
-import { container, ImageExtend, QuillWatch } from "quill-image-extend-module";
-Quill.register("modules/ImageExtend", ImageExtend);
+import "highlight.js/styles/monokai-sublime.css";
 import { post } from "../../../../util/request";
 import { Button, Table, Select, FormItem, Form, Upload, Input } from "iview";
 import { Type, MediaType } from "../../../../util/type.js";
+import hljs from "highlight.js";
+import {
+  container,
+  ImageExtend,
+  QuillWatch,
+  theme
+} from "quill-image-extend-module";
+
+// Quill.register("modules/Theme", theme);
+Quill.register("modules/ImageExtend", ImageExtend);
+
 export default {
   name: "addarticle",
   data() {
@@ -68,6 +82,7 @@ export default {
       MediaTypeList: MediaType,
       editorOption: {
         modules: {
+        
           ImageExtend: {
             loading: true,
             name: "file",
@@ -75,23 +90,37 @@ export default {
             response: res => {
               return res.file;
             }
-            // change: (xhr, formData) => {
-            //    
-            //   // xhr.setRequestHeader('myHeader','myValue')
-            //   // formData.append('token', 'myToken')
-            // } // 可选参
           },
-          toolbar: {
-            container: container,
-            handlers: {
-              image: function() {
-                QuillWatch.emit(this.quill.id);
-              }
-            }
+          toolbar: [
+            ["bold", "italic", "underline", "strike"],
+            ["blockquote", "code-block"],
+            [{ header: 1 }, { header: 2 }],
+            [{ list: "ordered" }, { list: "bullet" }],
+            [{ script: "sub" }, { script: "super" }],
+            [{ indent: "-1" }, { indent: "+1" }],
+            [{ direction: "rtl" }],
+            [{ size: ["small", false, "large", "huge"] }],
+            [{ header: [1, 2, 3, 4, 5, 6, false] }],
+            [{ font: [] }],
+            [{ color: [] }, { background: [] }],
+            [{ align: [] }],
+            ["clean"],
+            ["link", "image", "video"]
+          ],
+          syntax: {
+            highlight: text => hljs.highlightAuto(text).value
           }
         }
       }
     };
+  },
+  computed: {
+    editor() {
+      return this.$refs.myTextEditor.quill;
+    },
+    contentCode() {
+      return hljs.highlightAuto(this.content).value;
+    }
   },
   methods: {
     typeChange() {
@@ -106,11 +135,10 @@ export default {
       const param = this.prepareParam();
       post("/api/addArticle", param)
         .then(res => {
-          return res.json();
+          console.log(res);
+          return res;
         })
-        .then(res => {
-           ;
-        });
+        .then(res => {});
     },
     prepareParam() {
       let param = {};
@@ -124,17 +152,10 @@ export default {
       return param;
     },
     publishArticle() {},
-    onEditorBlur(quill) {
-       ;
-    },
-    onEditorFocus(quill) {
-       ;
-    },
-    onEditorReady(quill) {
-       ;
-    },
+    onEditorBlur(quill) {},
+    onEditorFocus(quill) {},
+    onEditorReady(quill) {},
     onEditorChange({ quill, html, text }) {
-       ;
       this.content = html;
     }
   },

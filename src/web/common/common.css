@@ -12,7 +12,14 @@ a{
 body{
   background-color:#F6F6F6 !important;
 }
-
+.ql-syntax{
+  padding: 10px;
+  font-family: inherit;
+  font-size: 15px;
+  word-spacing: 5px;
+  letter-spacing: .5px;
+  background: #fafafa;
+}
 input[type="text"]{
   /* padding: 6px;
   border-radius: 6px;
