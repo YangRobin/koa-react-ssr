@@ -8,6 +8,7 @@ import koaBody from 'koa-body';
 import session from 'koa-session';
 import LoginMidware from './middleware/LoginMidware';
 import bodyParser from 'koa-bodyparser';
+import cacheHeader from './middleware/cacheHeader'
 
 const staticPath = './resource'
 const app = new Koa();
@@ -26,11 +27,11 @@ app
     httpOnly: true, /** (boolean) httpOnly or not (default true) */
     signed: true, /** (boolean) signed or not (default true) */
   }, app))
+  .use(cacheHeader)
   .use(views(__dirname + '/resource'))
   .use(koaStatic(
-    path.join(__dirname, staticPath)
+    path.join(__dirname, staticPath),
   ))
-
   .use(koaBody({
     json: true,
     multipart: true,
@@ -42,6 +43,5 @@ app
   .use(router.routes())
   .use(router.allowedMethods())
   .listen(config.port)
-  console.log("server run on "+config.port)
+console.log("server run on " + config.port)
 
- 

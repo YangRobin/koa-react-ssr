@@ -38,11 +38,13 @@
         @ready="onEditorReady($event)"
         height="500px"
       />
-      <div class="quill-code">
+      <!-- <div class="quill-code">
         <code class="hljs" v-html="contentCode"></code>
+      </div>-->
+      <div class="post-btn">
+        <Button @click="saveArticle">提交</Button>
+        <Button type="primary" @click="goback">取消</Button>
       </div>
-      <Button @click="saveArticle">提交</Button>
-      <Button type="primary" @click="publishArticle">提交</Button>
     </Form>
   </div>
 </template>
@@ -54,7 +56,16 @@ import "quill/dist/quill.snow.css";
 import "quill/dist/quill.bubble.css";
 import "highlight.js/styles/monokai-sublime.css";
 import { post } from "../../../../util/request";
-import { Button, Table, Select, FormItem, Form, Upload, Input } from "iview";
+import {
+  Button,
+  Table,
+  Select,
+  FormItem,
+  Form,
+  Upload,
+  Modal,
+  Input
+} from "iview";
 import { Type, MediaType } from "../../../../util/type.js";
 import hljs from "highlight.js";
 import {
@@ -82,7 +93,6 @@ export default {
       MediaTypeList: MediaType,
       editorOption: {
         modules: {
-        
           ImageExtend: {
             loading: true,
             name: "file",
@@ -91,22 +101,30 @@ export default {
               return res.file;
             }
           },
-          toolbar: [
-            ["bold", "italic", "underline", "strike"],
-            ["blockquote", "code-block"],
-            [{ header: 1 }, { header: 2 }],
-            [{ list: "ordered" }, { list: "bullet" }],
-            [{ script: "sub" }, { script: "super" }],
-            [{ indent: "-1" }, { indent: "+1" }],
-            [{ direction: "rtl" }],
-            [{ size: ["small", false, "large", "huge"] }],
-            [{ header: [1, 2, 3, 4, 5, 6, false] }],
-            [{ font: [] }],
-            [{ color: [] }, { background: [] }],
-            [{ align: [] }],
-            ["clean"],
-            ["link", "image", "video"]
-          ],
+          toolbar: {
+            container: container,
+            handlers: {
+              image: function() {
+                QuillWatch.emit(this.quill.id);
+              }
+            }
+          },
+          // toolbar: [
+          //   ["bold", "italic", "underline", "strike"],
+          //   ["blockquote", "code-block"],
+          //   [{ header: 1 }, { header: 2 }],
+          //   [{ list: "ordered" }, { list: "bullet" }],
+          //   [{ script: "sub" }, { script: "super" }],
+          //   [{ indent: "-1" }, { indent: "+1" }],
+          //   [{ direction: "rtl" }],
+          //   [{ size: ["small", false, "large", "huge"] }],
+          //   [{ header: [1, 2, 3, 4, 5, 6, false] }],
+          //   [{ font: [] }],
+          //   [{ color: [] }, { background: [] }],
+          //   [{ align: [] }],
+          //   ["clean"],
+          //   ["link", "image", "video"]
+          // ],
           syntax: {
             highlight: text => hljs.highlightAuto(text).value
           }
@@ -123,6 +141,9 @@ export default {
     }
   },
   methods: {
+    goback() {
+      window.history.back();
+    },
     typeChange() {
       this.subTypeList = Type.type.find(i => {
         return (i.name = this.type);
@@ -131,14 +152,31 @@ export default {
     handleSuccess(res, file) {
       this.url = res.file;
     },
+    validParam(param){
+      if(!param.type || !param.subType || !param.mediaType){
+        return false;
+      }
+      return true;
+    },
     saveArticle() {
       const param = this.prepareParam();
+      if(!this.validParam(param)){
+        this.$Modal.error({
+          title:'类型未填写完整!'
+        })
+        return;
+      }
       post("/api/addArticle", param)
         .then(res => {
-          console.log(res);
-          return res;
+          if (res.success) {
+            this.goback();
+          }
         })
-        .then(res => {});
+        .catch(err => {
+          this.$Modal.error({
+            title: err
+          });
+        });
     },
     prepareParam() {
       let param = {};
@@ -178,7 +216,9 @@ export default {
   .page-content {
     background-color: #fff;
     padding: 20px;
-
+    .post-btn {
+      margin-top: 10px;
+    }
     .title {
       .cover {
         text-align: center;

@@ -1,10 +1,8 @@
 /**
  * @author robin.yang
  */
-
-import {
-  query
-} from '../../util/util';
+import Query from '../../util/Query';
+const query = Query.query;
 
 class UserServiceFacade {
   /**

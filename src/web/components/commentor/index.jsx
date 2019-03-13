@@ -26,9 +26,9 @@ class Commentor extends React.PureComponent {
             <li onClick={() => { this.openCommentList() }}><button className={style.commenterBtn}>评论</button></li> */}
           </ul>
           {
-            this.props.isOpened ? <span onClick={() => { this.props.close() }}>
+            this.props.isOpened ? <span className={style.openArticle} onClick={() => { this.props.close() }}>
               收起
-            </span> : <span onClick={() => { this.props.open() }}>
+            </span> : <span className={style.openArticle} onClick={() => { this.props.open() }}>
                 展开阅读
             </span>
           }

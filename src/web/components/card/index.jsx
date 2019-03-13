@@ -6,22 +6,23 @@ import style from './style.scss'
 import Commentor from '../commentor/index.jsx'
 import Mark from 'react-markdown';
 import UserInfo from '../userinfo/index.jsx'
+const limit = 200;
 class Card extends React.Component {
 
   constructor(props) {
     super(props)
-     
+
     this.state = {
       content: '',
       isOpened: false
     }
-    this.openArticle=this.openArticle.bind(this);
-    this.closeArticle=this.closeArticle.bind(this);
+    this.openArticle = this.openArticle.bind(this);
+    this.closeArticle = this.closeArticle.bind(this);
   }
   componentWillMount() {
     const length = this.props.data.content.length;
     this.setState({
-      content: length > 100 ? this.props.data.content.substr(0, 100) : this.props.data.content,
+      content: length > limit ? this.props.data.content.substr(0, limit) : this.props.data.content,
     })
 
   }
@@ -33,7 +34,7 @@ class Card extends React.Component {
   }
   closeArticle() {
     this.setState({
-      content: this.props.data.content.substr(0, 100),
+      content: this.props.data.content.substr(0, limit),
       isOpened: false
     })
   }

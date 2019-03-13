@@ -21,7 +21,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
+    .openArticle{
+      font-size: 14px;
+    }
     .operator{
       display: flex;
       li{
