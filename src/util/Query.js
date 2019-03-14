@@ -45,9 +45,8 @@ class Query {
 
   static query(sql, values) {
     return new Promise((resolve, reject) => {
-      pool.getConnection(function (err, connection) {
+      new Query().getPool().getConnection(function (err, connection) {
         if (err) {
-            ;
           reject(err)
         } else {
           connection.query(sql, values, (err, rows) => {
