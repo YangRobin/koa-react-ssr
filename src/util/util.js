@@ -2,31 +2,13 @@
 
 import fs from 'fs';
 import path from 'path';
-import mysql from 'mysql';
-import config from '../config/app.config'
+// import mysql from 'mysql';
+// import config from '../config/app.config'
 
-const pool = mysql.createPool(config.database)
+// const pool = mysql.createPool(config.database)
 
 export function query(sql, values) {
-  return new Promise((resolve, reject) => {
-    pool.getConnection(function (err, connection) {
-      if (err) {
-        reject(err)
-      } else {
-        connection.query(sql, values, (err, rows) => {
-          if (err) {
-            reject(err)
-          } else {
-            resolve(rows)
-          }
-          connection.release()
-        })
-      }
-    })
-  })
-    .catch((error) => {
-      console.log("%%%%%%%%%%%%%%",error)
-    });
+ 
 }
 
 

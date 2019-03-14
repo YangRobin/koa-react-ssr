@@ -48,9 +48,9 @@ class Card extends React.Component {
         {/* <UserInfo data={user} /> */}
         <h3 className={style.title}>{this.props.data.title}</h3>
         <div className={style.content}>
-          {
+          {/* {
             this.state.isOpened ? '' : <img src={this.props.data.cover} alt="" />
-          }
+          } */}
           <div className={style.text}>
             {/* <Mark source={this.state.content} /> */}
             <div dangerouslySetInnerHTML={{

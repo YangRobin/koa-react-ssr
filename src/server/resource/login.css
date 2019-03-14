@@ -1,5 +1,5 @@
 .style_wrapper_src-web-components-wrapper- {
-  max-width: 1200px;
+  max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   position: relative; }
@@ -13,8 +13,9 @@
   height: 42px;
   line-height: 42px; }
   .style_header_src-web-components-header- .style_logo_src-web-components-header- {
-    font-size: 13px;
-    font-weight: 600; }
+    font-size: 15px;
+    font-weight: 600;
+    color: #202428; }
 body, button, ul, li, ol, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0; }

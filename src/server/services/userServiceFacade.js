@@ -8,20 +8,20 @@ class UserServiceFacade {
   /**
    * get all user 
    */
-  getAllUser() {
-    return query("select * from user");
+  async  getAllUser() {
+    return await query("select * from user");
   }
 
   /**queryUseByNameAndPassword
    * query user by name and password
    */
-  queryUseByNameAndPassword(name, password) {
+  async  queryUseByNameAndPassword(name, password) {
     const sql = `select * from user where name = "${name}" and password ="${password}"`;
-    return query(sql);
+    return await query(sql);
   }
 
-  queryUserById(id) {
-    return query(`select * from  user where id =${id}`)
+  async queryUserById(id) {
+    return await query(`select * from  user where id =${id}`).catch(err => { console.log("**************ID", err) })
   }
 
 }

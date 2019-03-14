@@ -13,13 +13,17 @@ class Breif extends React.PureComponent {
       <div>
         <div className={style.info}>
           <div className={style.avator}>
-            <img src="avator.jpg" alt="avator" />
+            <img src="img/avator.jpg" alt="avator" />
           </div>
           <div className={style.brief}>
             <h3>robin</h3>
             <div className={style.social}>
-              <span>github</span>
-              <span>知乎</span>
+              <span>
+                <a target='blank' href="https://github.com/YangRobin">github</a>
+              </span>
+              <span>
+                <a target='blank' href="https://www.zhihu.com/people/robinYang11/activities">知乎</a>
+              </span>
             </div>
           </div>
           <div className={style.about}>
@@ -27,8 +31,8 @@ class Breif extends React.PureComponent {
               寻找知识的力量
            </p>
           </div>
-          <div className={style.contact}>
-            <span className={style.title}>商业合作</span>
+          {/* <div className={style.contact}>
+            <span className={style.title}>CONTACT</span>
             <div>
               <ul>
                 <li>
@@ -39,7 +43,7 @@ class Breif extends React.PureComponent {
                 </li>
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     )

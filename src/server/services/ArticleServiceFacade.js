@@ -3,7 +3,7 @@
  */
 
 import Query from '../../util/Query';
-const query =Query.query;
+const query = Query.query;
 
 class ArticleServiceFacade {
   /**
@@ -18,8 +18,8 @@ class ArticleServiceFacade {
    * @param {*} pageSize
    * @description query article by page 
    */
-  queryArticleByPage(page, pageSize) {
-    return query(`SELECT * FROM article  LIMIT ${pageSize} OFFSET ${pageSize * (page - 1)}`)
+  async queryArticleByPage(page, pageSize) {
+    return await query(`SELECT * FROM article  LIMIT ${pageSize} OFFSET ${pageSize * (page - 1)}`)
   }
 
   /**
@@ -87,7 +87,7 @@ class ArticleServiceFacade {
     return query(sql);
   }
 
-  loadquery(page, pageSize) {
+  async loadquery(page, pageSize) {
     let sql = `
       SELECT 
         *  
@@ -98,8 +98,10 @@ class ArticleServiceFacade {
       OFFSET
         ${(page - 1) * (pageSize)}
     `
-     query(query).then(res=>{console.log(res)})
-    return query(sql);
+    const test =await query(sql);
+    console.log("@#$%^&*(",test)
+    //巨坑 无比
+    return await query(sql)
   }
 }
 export default new ArticleServiceFacade();

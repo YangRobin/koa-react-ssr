@@ -16,7 +16,6 @@ const config = {
    */
   database: {
     host: '127.0.0.1',
-    // host: '39.98.57.178',
     user: 'root',
     password: 'root',
     database: 'xyzy',

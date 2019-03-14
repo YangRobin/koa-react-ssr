@@ -11,7 +11,7 @@ export default class Header extends React.PureComponent {
       <div className={style.header}>
         <Wrapper>
           <div>
-            <span className={style.logo}>DISCOVER THE POWER  </span>
+            <span className={style.logo}>DISCOVER THE POWER</span>
           </div>
         </Wrapper>
       </div>
