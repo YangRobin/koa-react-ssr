@@ -110,11 +110,6 @@ hue-6-2: #c18401
 .hljs-link {
   text-decoration: underline;
 }
-.style_wrapper_src-web-components-wrapper- {
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative; }
 .style_footer_src-web-components-footer- {
   text-align: center;
   color: #999999;
@@ -128,6 +123,11 @@ hue-6-2: #c18401
     font-size: 15px;
     font-weight: 600;
     color: #202428; }
+.style_wrapper_src-web-components-wrapper- {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; }
 body, button, ul, li, ol, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0; }

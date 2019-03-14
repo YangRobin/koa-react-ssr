@@ -23,13 +23,12 @@ class Query {
     return Query.instance;
   }
   async getConnection() {
-    const pool = new Query().getPool();
+    // const pool = new Query().getPool();
     if (!Query.conn) {
       Query.conn = await new Promise((resolve, reject) => {
         const pool = new Query().getPool()
         pool.getConnection(function (err, connection) {
           if (err) {
-              
             reject(err)
           } else {
             resolve(connection)
