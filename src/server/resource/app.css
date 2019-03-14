@@ -53,6 +53,9 @@ body {
   background-color: #fff;
   padding: 20px;
 }
+.add-article .page-content .post-btn {
+    margin-top: 10px;
+}
 .add-article .page-content .title .cover {
     text-align: center;
     margin-top: 10px;

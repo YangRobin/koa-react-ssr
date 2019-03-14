@@ -29,16 +29,12 @@
           <Option v-for="item in MediaTypeList" :value="item.name" :key="item.name">{{ item.label }}</Option>
         </Select>
       </FormItem>
-      <quillEditor
-        ref="myTextEditor"
-        v-model="content"
-        :options="editorOption"
+      <quillEditor ref="myTextEditor" v-model="content" :options="editorOption" height="500px"/>
+      <!--
         @blur="onEditorBlur($event)"
         @focus="onEditorFocus($event)"
         @ready="onEditorReady($event)"
-        height="500px"
-      />
-      <!-- <div class="quill-code">
+         <div class="quill-code">
         <code class="hljs" v-html="contentCode"></code>
       </div>-->
       <div class="post-btn">
@@ -152,18 +148,18 @@ export default {
     handleSuccess(res, file) {
       this.url = res.file;
     },
-    validParam(param){
-      if(!param.type || !param.subType || !param.mediaType){
+    validParam(param) {
+      if (!param.type || !param.subType || !param.mediaType) {
         return false;
       }
       return true;
     },
     saveArticle() {
       const param = this.prepareParam();
-      if(!this.validParam(param)){
+      if (!this.validParam(param)) {
         this.$Modal.error({
-          title:'类型未填写完整!'
-        })
+          title: "类型未填写完整!"
+        });
         return;
       }
       post("/api/addArticle", param)
