@@ -21,8 +21,7 @@ class UserServiceFacade {
   }
 
   async queryUserById(id) {
-    return await query(`select * from  user where id =${id}`).catch(err => {   
+    return await query(`select * from  user where id =${id}`)
   }
-
 }
 export default new UserServiceFacade();
