@@ -99,7 +99,7 @@ class ArticleServiceFacade {
         ${(page - 1) * (pageSize)}
     `
     const test =await query(sql);
-    console.log("@#$%^&*(",test)
+      
     //巨坑 无比
     return await query(sql)
   }

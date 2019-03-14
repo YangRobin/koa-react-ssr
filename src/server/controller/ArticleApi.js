@@ -54,7 +54,7 @@ class ArticleApi {
     let res = {}
     try {
       data = await articleService.loadquery(page, pageSize);
-      console.log("###",data)
+        
       for (let i = 0; i < data.length; i++) {
         data[i].creator = await userService.queryUserById(data[i].creator);
       }
@@ -67,7 +67,7 @@ class ArticleApi {
       }
       ctx.body = res;
     } catch (err) {
-      console.log(err)
+        
       res.error = err
       ctx.body = res;
     }

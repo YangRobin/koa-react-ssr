@@ -40,7 +40,7 @@ class Card extends React.Component {
   }
 
   render() {
-    console.log(this.props.data)
+      
     // const children = this.props.children;
     const user = this.props.data.creator[0];
     return (

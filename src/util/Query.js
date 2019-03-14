@@ -29,7 +29,7 @@ class Query {
         const pool = new Query().getPool()
         pool.getConnection(function (err, connection) {
           if (err) {
-            console.log("执行失败！")
+              
             reject(err)
           } else {
             resolve(connection)
@@ -47,7 +47,7 @@ class Query {
     return new Promise((resolve, reject) => {
       pool.getConnection(function (err, connection) {
         if (err) {
-          console.log("数据库连接错误", err);
+            ;
           reject(err)
         } else {
           connection.query(sql, values, (err, rows) => {

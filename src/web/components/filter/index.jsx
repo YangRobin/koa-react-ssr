@@ -16,7 +16,7 @@ class Filter extends React.PureComponent {
     const temp = Type.type.find(i => {
       return i.name === type;
     })
-    console.log("#####")
+      
     this.setState({
       subType: temp.subType
     })
@@ -62,7 +62,7 @@ const mapStateToProps = (state) => {
 }
 const mapDispatchToProps = (dispatch, ownprops) => {
   return {
-    add: () => { console.log("ddd"); dispatch({ type: 'ADD' }) }
+    add: () => {    }
   }
 }
 
