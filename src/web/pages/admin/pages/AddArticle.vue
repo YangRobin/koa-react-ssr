@@ -2,34 +2,42 @@
   <div class="add-article">
     <Back/>
     <div class="page-title">
-      <h3>Add article page</h3>
+      <h3>{{operation}}</h3>
     </div>
     <Form class="page-content" :label-width="80">
       <FormItem label="title">
-        <Input v-model="title" style="width: 300px" placeholder="Enter title ..."/>
+        <Input v-model="article.title" style="width: 300px" placeholder="Enter title ..."/>
       </FormItem>
       <FormItem label="cover" prop="name">
         <Upload action="/api/upload" :on-success="handleSuccess" :show-upload-list="false">
           <Button icon="ios-cloud-upload-outline">Upload files</Button>
         </Upload>
       </FormItem>
-      <img :src="url" alt>
+      <FormItem label="coverpreview" prop="coverpreview">
+        <img :src="article.cover" alt>
+      </FormItem>
+
       <FormItem label="type">
-        <Select v-model="type" @on-change="typeChange()" style="width:300px">
+        <Select v-model="article.type" @on-change="typeChange()" style="width:300px">
           <Option v-for="item in typeList" :value="item.name" :key="item.name">{{ item.label }}</Option>
         </Select>
       </FormItem>
       <FormItem label="subType">
-        <Select v-model="subType" style="width:300px">
+        <Select v-model="article.subType" style="width:300px">
           <Option v-for="item in subTypeList" :value="item.name" :key="item.name">{{ item.label }}</Option>
         </Select>
       </FormItem>
       <FormItem label="mediaType" prop="name">
-        <Select v-model="mediaType" style="width:300px">
+        <Select v-model="article.mediaType" style="width:300px">
           <Option v-for="item in MediaTypeList" :value="item.name" :key="item.name">{{ item.label }}</Option>
         </Select>
       </FormItem>
-      <quillEditor ref="myTextEditor" v-model="content" :options="editorOption" height="500px"/>
+      <quillEditor
+        ref="myTextEditor"
+        v-model="article.content"
+        :options="editorOption"
+        height="500px"
+      />
       <!--
         @blur="onEditorBlur($event)"
         @focus="onEditorFocus($event)"
@@ -64,6 +72,7 @@ import {
 } from "iview";
 import { Type, MediaType } from "../../../../util/type.js";
 import hljs from "highlight.js";
+import CONST from "../../../../util/const.js";
 import {
   container,
   ImageExtend,
@@ -78,15 +87,19 @@ export default {
   name: "addarticle",
   data() {
     return {
-      title: "",
-      content: "",
-      url: "",
-      type: "",
-      subType: "",
-      mediaType: "",
-      typeList: Type.type,
+      operation: "添加文章",
+      operate: CONST.OPERATION.ADD,
+      typeList: [],
       subTypeList: [],
       MediaTypeList: MediaType,
+      article: {
+        title: "",
+        content: "",
+        cover: "",
+        type: "",
+        subType: "",
+        mediaType: ""
+      },
       editorOption: {
         modules: {
           ImageExtend: {
@@ -128,6 +141,27 @@ export default {
       }
     };
   },
+  beforeMount() {
+    this.typeList = Type.type;
+    if (this.$route.params.id !== "null") {
+      this.operation = "编辑文章";
+      this.operate = CONST.OPERATION.EDIT;
+      this.queryArticleById(this.$route.params.id)
+        .then(res => {
+          this.article = res.result;
+          this.subTypeList =
+            Type.type.find(i => {
+              return i.name === this.article.type;
+            }).subType || [];
+        })
+        .catch(err => {
+          console.error(err);
+        });
+    }
+  },
+  mounted() {
+    console.log("robin");
+  },
   computed: {
     editor() {
       return this.$refs.myTextEditor.quill;
@@ -137,16 +171,31 @@ export default {
     }
   },
   methods: {
+    queryArticleById(id) {
+      return post("/api/queryArticleById", { id });
+    },
+    updateArticle(article) {
+      post("/api/updateArticle", article).then(res => {
+        if (res.success) {
+          this.$Modal.info({
+            title: "编辑成功!"
+          });
+          this.goback();
+        }
+      });
+    },
     goback() {
       window.history.back();
     },
     typeChange() {
-      this.subTypeList = Type.type.find(i => {
-        return (i.name = this.type);
-      }).subType;
+      console.log(Type.type);
+      this.subTypeList =
+        Type.type.find(i => {
+          return i.name === this.article.type;
+        }).subType || [];
     },
     handleSuccess(res, file) {
-      this.url = res.file;
+      this.article.cover = res.file;
     },
     validParam(param) {
       if (!param.type || !param.subType || !param.mediaType) {
@@ -162,6 +211,13 @@ export default {
         });
         return;
       }
+      if (this.operate === CONST.OPERATION.ADD) {
+        this.addArticle(param);
+      } else {
+        this.updateArticle(param);
+      }
+    },
+    addArticle(param) {
       post("/api/addArticle", param)
         .then(res => {
           if (res.success) {
@@ -175,14 +231,8 @@ export default {
         });
     },
     prepareParam() {
-      let param = {};
-      param.title = this.title;
-      param.content = this.content;
+      let param = this.article;
       param.createTime = new Date();
-      param.cover = this.url;
-      param.type = this.type;
-      param.subType = this.subType;
-      param.mediaType = this.mediaType;
       return param;
     },
     publishArticle() {},

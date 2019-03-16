@@ -1,8 +1,8 @@
-.style_footer_src-web-components-footer- {
-  text-align: center;
-  color: #999999;
-  font-size: 15px;
-  padding: 10px; }
+.style_wrapper_src-web-components-wrapper- {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; }
 .style_header_src-web-components-header- {
   background-color: white;
   height: 42px;
@@ -11,11 +11,11 @@
     font-size: 15px;
     font-weight: 600;
     color: #202428; }
-.style_wrapper_src-web-components-wrapper- {
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative; }
+.style_footer_src-web-components-footer- {
+  text-align: center;
+  color: #999999;
+  font-size: 15px;
+  padding: 10px; }
 body, button, ul, li, ol, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   padding: 0; }

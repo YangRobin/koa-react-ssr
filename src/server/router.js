@@ -20,8 +20,11 @@ router.post('/api/enter',loginIn);
 router.post('/api/upload', upload);
 router.post('/api/loadQuery', ArticleApi.loadQuery)
 router.post('/api/addArticle', ArticleApi.addArticle)
+router.post('/api/updateArticle', ArticleApi.updateArticle)
+router.post('/api/queryArticleById', ArticleApi.queryArticleById)
 router.post('/api/queryArticleByPage',ArticleApi.queryArticleByPage)
 router.get('/api/queryUserByNameAndPassword', UserApi.queryUserByNameAndPassword)
 router.get('/api/queryAllArticle', ArticleApi.queryAllArticle)
+
 
 export default router;

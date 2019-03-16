@@ -8,9 +8,25 @@ import path from 'path';
 // const pool = mysql.createPool(config.database)
 
 export function query(sql, values) {
- 
+
 }
 
+export function underscore2upperCase(obj) {
+  var newObj = {}
+  Object.keys(obj).forEach(i => {
+    let temp = i;
+    if (i.match(/_/img)) {
+      const list = i.match(/_\w/img);
+      if (list) {
+        list.forEach(j => {
+          i = i.replace(j, j.replace("_", "").toUpperCase())
+        })
+      }
+    }
+    newObj[i] = obj[temp]
+  })
+  return newObj;
+}
 
 
 export function getEntries(dir) {

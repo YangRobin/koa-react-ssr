@@ -16,7 +16,7 @@ const router = new Router({
       component: ArticleManager,
     },
     {
-      path: '/add-article',
+      path: '/add-article/:id',
       name: 'add-article',
       component: AddArticle,
     }

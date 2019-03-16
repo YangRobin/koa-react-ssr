@@ -8,6 +8,7 @@
     "react2html": "./bin/react2html.js"
   },
   "scripts": {
+    "build_test":"babel src -d dist  --source-maps",
     "build": "webpack --config ./src/config/webpack.config.babel.js --mode production ",
     "dd": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",

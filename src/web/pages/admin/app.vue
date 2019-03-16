@@ -7,7 +7,7 @@
       <div class="left">
         <ul>
           <li>
-            <router-link to="article-manager">Add article</router-link>
+            <router-link to="/article-manager">文章管理</router-link>
           </li>
         </ul>
       </div>

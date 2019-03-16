@@ -6,7 +6,7 @@
 
 import userService from '../services/userServiceFacade'
 import articleService from '../services/ArticleServiceFacade'
-
+import { underscore2upperCase } from "../../util/util"
 class ArticleApi {
 
   /**
@@ -14,18 +14,7 @@ class ArticleApi {
    *   return the user information which type is json
    */
   async queryAllArticle(ctx, next) {
-     
     var res = await articleService.getAllArticle();
-    var id = await articleService.addArticle({
-      type: 'article',
-      title: "test",
-      content: "robin",
-      creator: "dd",
-      createTime: "ddd",
-      gmtModify: "ddd",
-      cover: 'ddd',
-      discard: 1,
-    })
     ctx.body = res;
   }
   /**
@@ -34,6 +23,20 @@ class ArticleApi {
   async queryArticleByPage(ctx, next) {
     const { page, pageSize } = JSON.parse(ctx.request.body);
     const res = await articleService.queryArticleByPage(page, pageSize)
+    const total = await articleService.getTotalArticle();
+    ctx.body = {
+      success: true,
+      result: res,
+      total: total[0].total,
+    }
+  }
+
+  // query article by id 
+  async queryArticleById(ctx, next) {
+    const { id } = JSON.parse(ctx.request.body);
+    let res = await articleService.queryArticleById(id);
+    res = underscore2upperCase(JSON.parse(JSON.stringify(res[0])));
+    console.log("res", res)
     ctx.body = {
       success: true,
       result: res,
@@ -42,19 +45,13 @@ class ArticleApi {
 
   /**
    * 
-   * @param {*} page 
-   * @param {*} pageSize 
-   * 
    */
   async loadQuery(ctx, next) {
-
     const { page, pageSize } = JSON.parse(ctx.request.body)
-
     let data = [];
     let res = {}
     try {
       data = await articleService.loadquery(page, pageSize);
-        
       for (let i = 0; i < data.length; i++) {
         data[i].creator = await userService.queryUserById(data[i].creator);
       }
@@ -67,15 +64,28 @@ class ArticleApi {
       }
       ctx.body = res;
     } catch (err) {
-        
       res.error = err
       ctx.body = res;
     }
   }
 
+  async updateArticle(ctx, next) {
+    const article = JSON.parse(ctx.request.body);
+    console.log("DDD", article)
+    const user = ctx.session.user
+    article.discard = 0
+    article.creator = user.id;
+    article.id = parseInt(article.id);
+    let res = await articleService.updateArticle(article)
+    if (res) {
+      ctx.body = {
+        success: true,
+        id: res.insertId,
+      }
+    }
+  }
 
   async addArticle(ctx, next) {
-    // articleService.addArticle()
     const article = JSON.parse(ctx.request.body)
     const user = ctx.session.user
     article.discard = 0

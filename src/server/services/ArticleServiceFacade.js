@@ -12,14 +12,17 @@ class ArticleServiceFacade {
   getAllArticle() {
     return query("select * from article");
   }
-
+  getTotalArticle() {
+    return query('SELECT  count(*) as total from article')
+  }
   /**
    * @param {*} page 
    * @param {*} pageSize
    * @description query article by page 
    */
   async queryArticleByPage(page, pageSize) {
-    return await query(`SELECT * FROM article  LIMIT ${pageSize} OFFSET ${pageSize * (page - 1)}`)
+    let sql = `SELECT * FROM article  ORDER BY create_time DESC  LIMIT ${pageSize} OFFSET ${pageSize * (page - 1)} `
+    return await query(sql)
   }
 
   /**
@@ -48,6 +51,12 @@ class ArticleServiceFacade {
     return query(sql)
   }
 
+  queryArticleById(id) {
+    const sql = `
+      SELECT * FROM article where id =${id}
+    `
+    return query(sql);
+  }
   /**
    * @param {*} article
    * @description update article by id 
@@ -59,15 +68,18 @@ class ArticleServiceFacade {
     SET
       title='${article.title}',
       type='${article.type}',
+      media_type='${article.mediaType}',
+      sub_type='${article.subType}',
       creator='${article.creator}',
       content='${article.content}', 
-      crerate_time='${article.createTime}',
+      create_time='${article.createTime}',
       cover='${article.cover}',
-      gmt_midify='${article.gmtModify}'
-      discard='${article.discard}'
+      gmt_modify='${article.gmtModify}',
+      discard=${article.discard}
     WHERE 
-      id = ${article.id}
+      id =${article.id}
     `
+    console.log("sql", sql)
     return query(sql)
   }
 
@@ -98,8 +110,8 @@ class ArticleServiceFacade {
       OFFSET
         ${(page - 1) * (pageSize)}
     `
-    const test =await query(sql);
-      
+    const test = await query(sql);
+
     //巨坑 无比
     return await query(sql)
   }

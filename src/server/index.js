@@ -43,5 +43,6 @@ app
   .use(router.routes())
   .use(router.allowedMethods())
   .listen(config.port)
-  
+console.info('server run on ' + config.port)
+
 
