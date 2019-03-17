@@ -2,4 +2,5 @@
 .DS_Store
 node_modules
 src/dist/
-src/template/
+src/template/resource/
+src/server/

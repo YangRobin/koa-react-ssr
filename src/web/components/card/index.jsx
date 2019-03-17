@@ -6,7 +6,8 @@ import style from './style.scss'
 import Commentor from '../commentor/index.jsx'
 import Mark from 'react-markdown';
 import UserInfo from '../userinfo/index.jsx'
-const limit = 200;
+import CONST from '../../../util/const'
+
 class Card extends React.Component {
 
   constructor(props) {
@@ -22,7 +23,7 @@ class Card extends React.Component {
   componentWillMount() {
     const length = this.props.data.content.length;
     this.setState({
-      content: length > limit ? this.props.data.content.substr(0, limit) : this.props.data.content,
+      content: length > CONST.LIMIT ? this.props.data.content.substr(0, CONST.LIMIT) + "......" : this.props.data.content,
     })
 
   }
@@ -34,13 +35,13 @@ class Card extends React.Component {
   }
   closeArticle() {
     this.setState({
-      content: this.props.data.content.substr(0, limit),
+      content: this.props.data.content.substr(0, CONST.LIMIT) + "......",
       isOpened: false
     })
   }
 
   render() {
-      
+
     // const children = this.props.children;
     const user = this.props.data.creator[0];
     return (
@@ -56,13 +57,6 @@ class Card extends React.Component {
             <div dangerouslySetInnerHTML={{
               __html: this.state.content
             }}></div>
-            {/* {
-              this.state.isOpened ? <button className={style.readBtn} onClick={() => { this.closeArticle() }}>
-                收起
-            </button> : <button className={style.readBtn} onClick={() => { this.openArticle() }}>
-                  展开阅读
-            </button>
-            } */}
           </div>
         </div>
         <div className={style.footer}>

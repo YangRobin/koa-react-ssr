@@ -2,14 +2,6 @@
 
 import fs from 'fs';
 import path from 'path';
-// import mysql from 'mysql';
-// import config from '../config/app.config'
-
-// const pool = mysql.createPool(config.database)
-
-export function query(sql, values) {
-
-}
 
 export function underscore2upperCase(obj) {
   var newObj = {}
@@ -27,7 +19,6 @@ export function underscore2upperCase(obj) {
   })
   return newObj;
 }
-
 
 export function getEntries(dir) {
   var pages = {}

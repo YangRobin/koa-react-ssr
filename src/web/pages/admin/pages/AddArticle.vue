@@ -14,7 +14,8 @@
         </Upload>
       </FormItem>
       <FormItem label="coverpreview" prop="coverpreview">
-        <img :src="article.cover" alt>
+        <!-- <img :src="article.cover" alt> -->
+        <!-- <video :src="article.cover" width="400px" controls="controls"></video> -->
       </FormItem>
 
       <FormItem label="type">

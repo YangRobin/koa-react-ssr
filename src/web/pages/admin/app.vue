@@ -9,6 +9,9 @@
           <li>
             <router-link to="/article-manager">文章管理</router-link>
           </li>
+          <li>
+            <router-link to="/video-manager">视频管理</router-link>
+          </li>
         </ul>
       </div>
       <div class="right">
@@ -54,6 +57,7 @@ body {
       ul {
         margin-top: 10px;
         li {
+          padding:4px;
           font-size: 14px;
           text-align: center;
           a {
