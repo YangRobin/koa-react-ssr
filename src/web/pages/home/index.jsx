@@ -8,9 +8,9 @@ import style from './style.scss'
 import store from './store.js'
 import { Provider } from 'react-redux'
 import 'highlight.js/styles/atom-one-light.css'
-import "quill/dist/quill.core.css"
-import "quill/dist/quill.snow.css";
-import "quill/dist/quill.bubble.css";
+// import "quill/dist/quill.core.css"
+// import "quill/dist/quill.snow.css";
+// import "quill/dist/quill.bubble.css";
 // import 'quill/dist/quill.snow.css'
 import '../../common/common.css'
 class Home extends Component {

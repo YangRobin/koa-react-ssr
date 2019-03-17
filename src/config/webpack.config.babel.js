@@ -16,7 +16,7 @@ import ExtractTextPlugin from 'extract-text-webpack-plugin'
 const conf = {
   entry: {
     ...getEntries(config.pageDir),
-    react:['react','redux','react-redux']
+    react:['react','redux','react-redux','moment']
   },
   // target: 'node',
   plugins: [
@@ -193,7 +193,7 @@ fs.readdirSync(config.pageDir).forEach(i => {
         title: i,
         template: path.resolve(__dirname, "../server/resource/template/" + fileName + ".html"),
         inject: true,
-        chunks: ['vendor', i ,'react' ,'vendors~home~login','vendors~home~react']
+        chunks: ['vendor', i ,'react' ,'vendors~home~login','vendors~home~react','moment']
       })
     );
   }

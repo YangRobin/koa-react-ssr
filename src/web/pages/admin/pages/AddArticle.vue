@@ -115,6 +115,7 @@ export default {
             container: container,
             handlers: {
               image: function() {
+                console.log("test")
                 QuillWatch.emit(this.quill.id);
               }
             }

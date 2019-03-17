@@ -6,7 +6,7 @@
 
 
 require('css-modules-require-hook')({
-  extensions: ['.scss','.css'],
+  extensions: ['.scss', '.css'],
   preprocessCss: (data, filename) =>
     require('node-sass').renderSync({
       data,
@@ -17,7 +17,7 @@ require('css-modules-require-hook')({
   generateScopedName: '[name]_[local]_[path]',
 })
 
- 
+
 
 import React from 'react';
 import {

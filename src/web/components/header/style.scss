@@ -4,9 +4,12 @@
   background-color: white;
   height: 42px;
   line-height: 42px;
-  .logo{
-    font-size: 15px;
-    font-weight: 600;
-    color: #202428;
+  div{
+    padding:0 10px;
+    .logo{
+      font-size: 14px;
+      font-weight: 500;
+      color: #010101;
+    }
   }
 }

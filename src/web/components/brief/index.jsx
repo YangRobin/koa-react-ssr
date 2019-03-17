@@ -13,7 +13,7 @@ class Breif extends React.PureComponent {
       <div>
         <div className={style.info}>
           <div className={style.avator}>
-            <img src="img/avator.jpg" alt="avator" />
+            <img src="avator.jpg" alt="avator" />
           </div>
           <div className={style.brief}>
             <h3>robin</h3>

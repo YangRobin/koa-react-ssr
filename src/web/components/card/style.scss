@@ -7,11 +7,6 @@
   font-size: 16px;
   letter-spacing: 0.4px;
   font-weight: 300;
-  p{
-    img{
-      text-align: center;
-    }
-  }
   .title{
     font-size: 16px;
     margin: 10px 0;
@@ -27,6 +22,9 @@
       min-height: 120px;
       overflow: hidden;
       position: relative;
+      p.ql-align-center{
+        text-align: center;
+      }
       .readBtn{
         position: absolute;
         bottom: 0;

@@ -7,6 +7,8 @@
 import userService from '../services/userServiceFacade'
 import articleService from '../services/ArticleServiceFacade'
 import { underscore2upperCase } from "../../util/util"
+import Moment from 'moment';
+
 class ArticleApi {
 
   /**
@@ -75,7 +77,10 @@ class ArticleApi {
     const user = ctx.session.user
     article.discard = 0
     article.creator = user.id;
+    const gmtModify = new Date().getTime();
+    article.gmtModify = gmtModify;
     article.id = parseInt(article.id);
+    article.createTime = new Date(article.createTime).getTime();
     let res = await articleService.updateArticle(article)
     if (res) {
       ctx.body = {
@@ -87,7 +92,9 @@ class ArticleApi {
 
   async addArticle(ctx, next) {
     const article = JSON.parse(ctx.request.body)
-    const user = ctx.session.user
+    const user = ctx.session.user;
+    const createTime = new Date().getTime();
+    article.createTime = createTime;
     article.discard = 0
     article.creator = user.id;
     let res = await articleService.addArticle(article);

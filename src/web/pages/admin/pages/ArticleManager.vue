@@ -9,7 +9,7 @@
         <Table :columns="columns" :data="list"></Table>
         <div style="margin: 10px;overflow: hidden">
           <div style="float: right;">
-            <Page :total="total" :current="page" :page-size="pageSize"  @on-change="changePage"></Page>
+            <Page :total="total" :current="page" :page-size="pageSize" @on-change="changePage"></Page>
           </div>
         </div>
       </div>
@@ -52,6 +52,18 @@ export default {
         {
           title: "creator",
           key: "creator"
+        },
+        {
+          title: "create_time",
+          key: "create_time",
+        },
+        {
+          title: "gmt_modify",
+          key: "gmt_modify"
+        },
+        {
+          title: "praise_times",
+          key: "praise_times"
         },
         {
           title: "discard",
@@ -107,8 +119,8 @@ export default {
     };
   },
   methods: {
-    changePage(page){
-     this.queryArticleByPage(page);
+    changePage(page) {
+      this.queryArticleByPage(page);
     },
     queryArticleByPage(page) {
       post("api/queryArticleByPage", {
@@ -123,10 +135,15 @@ export default {
     }
   },
   mounted() {
-    this.queryArticleByPage(this.page)
+    this.queryArticleByPage(this.page);
   },
   components: {
     AddArticle
+  },
+  filters: {
+    timeFilter(time) {
+      return time + "###";
+    }
   }
 };
 </script>

@@ -11,7 +11,7 @@ let config = {
   devtool: 'none',
   entry: {
     app: './src/web/pages/admin/index.js',
-    vendor: ['vue', 'vue-router'],
+    vendor: ['vue', 'vue-router','moment'],
     editor: ['vue-quill-editor'],
   },
   output: {
