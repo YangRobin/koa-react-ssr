@@ -20,6 +20,10 @@ body{
   letter-spacing: .5px;
   background: #fafafa;
 }
+.ql-video{
+  width: 1010px;
+  height: 568px;
+}
 input[type="text"]{
   /* padding: 6px;
   border-radius: 6px;

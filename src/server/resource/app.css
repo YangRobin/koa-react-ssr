@@ -29,6 +29,7 @@ body {
         margin-top: 10px;
 }
 #root .main .left ul li {
+          padding: 4px;
           font-size: 14px;
           text-align: center;
 }
