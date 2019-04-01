@@ -11,7 +11,7 @@ let config = {
   devtool: 'none',
   entry: {
     app: './src/web/pages/admin/index.js',
-    vendor: ['vue', 'vue-router','moment'],
+    vendor: ['vue', 'vue-router', 'moment','iview'],
     editor: ['vue-quill-editor'],
   },
   output: {
@@ -39,7 +39,7 @@ let config = {
       // "/upload": "http://localhost:3000",
       "/api": {
         target: "http://localhost:3000",
-        
+
       }
     }
   },
@@ -64,8 +64,18 @@ let config = {
   optimization: {
     splitChunks: {
       chunks: 'all',
-      // minSize: 1000,
+      minSize: 3000,
+      cacheGroups: {
+        vendor: {//node_modules内的依赖库
+          chunks: "all",
+          test: /node_modules\//,
+          name: "vendor",
+          minChunks: 2, //被不同entry引用次数(import),1次的话没必要提取
+          // enforce: true?
+        },
+      }
       // minChunks: 1,
+
       // cacheGroups: {
       //   main: {//node_modules内的依赖库
       //     chunks: "all",
@@ -97,14 +107,20 @@ let config = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader', {
-            loader: 'css-loader',
+        use: ExtractTextPlugin.extract({ // 使用ExtractTextWebpackPlugin的extract方法
+          fallback: {// 这里表示不提取的时候，使用什么样的配置来处理css
+            loader: 'style-loader',
             options: {
-              importLoaders: 1
+              singleton: true // 表示将页面上的所有css都放到一个style标签内
             }
           },
-        ]
+          use: [ // 提取的时候，继续用下面的方式处理
+            {
+              loader: 'css-loader',
+
+            }
+          ]
+        })
       },
       {
         test: /\.(sass|scss)$/,

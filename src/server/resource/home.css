@@ -14,6 +14,11 @@
   .style_nav_src-web-components-nav- .style_menu_src-web-components-nav- li.style_showMore_src-web-components-nav- {
     position: absolute;
     right: 5px; }
+
+.style_nav_src-web-components-nav- .style_loading_src-web-components-nav- {
+  text-align: center;
+  font-size: 15px;
+  color: #959595; }
 /*
 
 Atom One Light by Daniel Gamage
@@ -110,20 +115,22 @@ hue-6-2: #c18401
 .hljs-link {
   text-decoration: underline;
 }
-.style_wrapper_src-web-components-wrapper- {
-  max-width: 1300px;
-  margin-left: auto;
-  margin-right: auto;
-  position: relative; }
 .style_footer_src-web-components-footer- {
   text-align: center;
   color: #999999;
   font-size: 15px;
   padding: 10px; }
+.style_wrapper_src-web-components-wrapper- {
+  max-width: 1300px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative; }
 .style_header_src-web-components-header- {
   background-color: white;
   height: 42px;
-  line-height: 42px; }
+  line-height: 42px;
+  margin-bottom: 5px;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1); }
   .style_header_src-web-components-header- div {
     padding: 0 10px; }
     .style_header_src-web-components-header- div .style_logo_src-web-components-header- {
@@ -144,21 +151,31 @@ body {
 
 li {
   list-style: none; }
-
-
-body,button,ul ,li ,ol,h1,h2,h3,h4,h5,h6{
+body,
+button,
+ul,
+li,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   margin: 0;
-  padding:0;
+  padding: 0;
 }
-a{
-  color:#314659;
+
+a {
+  color: #314659;
   text-decoration: none;
 }
 
-body{
-  background-color:#F6F6F6 !important;
+body {
+  background-color: #F6F6F6 !important;
 }
-.ql-syntax{
+
+.ql-syntax {
   padding: 10px;
   font-family: inherit;
   font-size: 15px;
@@ -166,44 +183,47 @@ body{
   letter-spacing: .5px;
   background: #fafafa;
 }
-.ql-video{
-  width: 1010px;
-  height: 568px;
+
+.ql-video {
+  width: 882px;
+  height: 497px;
 }
-input[type="text"]{
+
+input[type="text"] {
   /* padding: 6px;
   border-radius: 6px;
   outline: none;
   border: 1px solid #d9d9d9;
   background: #fcfcfc; */
 }
+
 input::-webkit-input-placeholder {
   /* placeholder颜色  */
   color: #caced4;
   /* placeholder字体大小  */
-  
+
 }
 
 
-.wrapper{
-  width:1200px; 
+.wrapper {
+  width: 1200px;
   margin-left: auto;
-  margin-right:auto; 
+  margin-right: auto;
 }
-.flex-wrapper{
+
+.flex-wrapper {
   padding-left: 15px;
   padding-right: 15px;
 }
 
-li{
+li {
   list-style: none;
 }.style_card_src-web-components-card- {
   border-bottom: 2px solid #f2f2f2;
   background: #ffffff;
   padding: 10px 20px;
   font-size: 16px;
-  letter-spacing: 0.4px;
-  font-weight: 300; }
+  letter-spacing: 0.4px; }
   .style_card_src-web-components-card- .style_title_src-web-components-card- {
     font-size: 16px;
     margin: 10px 0; }
@@ -232,9 +252,9 @@ li{
     color: gray;
     font-size: 12px; }
 .style_commentor_src-web-components-commentor- {
-  margin: 10px 0;
-  padding: 10px 0;
-  border-top: 1px solid #f6f6f6; }
+  margin-top: 10px;
+  padding-top: 5px;
+  border-top: 1px solid #ededed; }
   .style_commentor_src-web-components-commentor- .style_publish_src-web-components-commentor- {
     text-align: right;
     margin: 10px; }
@@ -251,6 +271,7 @@ li{
     justify-content: space-between;
     align-items: center; }
     .style_commentor_src-web-components-commentor- .style_header_src-web-components-commentor- .style_openArticle_src-web-components-commentor- {
+      color: #0aa3ff;
       font-size: 14px;
       cursor: pointer; }
     .style_commentor_src-web-components-commentor- .style_header_src-web-components-commentor- .style_operator_src-web-components-commentor- {

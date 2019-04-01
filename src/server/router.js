@@ -6,7 +6,7 @@ import UserApi from './controller/UserApi';
 import upload from './controller/uploadCtrl';
 import ArticleApi from './controller/ArticleApi';
 import { admin } from './controller/AdminCtrl'
-
+import { detail } from './controller/DetailCtrl'
 
 let router = new Router();
 
@@ -15,6 +15,7 @@ let router = new Router();
 router.get('/', home);
 router.get('/login', login);
 router.get('/admin', admin);
+router.get('/detail/:id', detail);
 //restful api 
 router.post('/api/enter',loginIn);
 router.post('/api/upload', upload);

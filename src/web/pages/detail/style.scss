@@ -1,0 +1,36 @@
+.detail {
+  .ql-video {
+    width: 882px;
+    height: 497px;
+  }
+
+  // background-color: #fff;
+  .main {
+    padding: 0 200px;
+    overflow: hidden;
+
+    >div {
+      float: left;
+      min-height: 300px;
+      position: relative;
+    }
+
+    .left {
+      width: 200px;
+      margin-left: -100%;
+      left: -200px;
+    }
+
+    .middle {
+      background-color: #fff;
+      width: 100%;
+    }
+
+    .right {
+      width: 220px;
+      background-color: blue;
+      margin-left: -220px;
+      right: -220px;
+    }
+  }
+}

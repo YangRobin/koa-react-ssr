@@ -1,15 +1,15 @@
-class BasicPlugin {
+class StaticPathPlugin {
   // 在构造函数中获取用户给该插件传入的配置
   constructor(options) {}
-
   // Webpack 会调用 BasicPlugin 实例的 apply 方法给插件实例传入 compiler 对象
   apply(compiler) {
-
-    //afterEmit 生成资源到 output 目录之后 的钩子
     compiler.plugin('afterEmit', function (compilation) {
-      //当生产资源之后,我们就可以在compilation.assets里拿到资源了
+
+      console.log(compilation)
+   
       for (var filename in compilation.assets) {
-          console.log("##################################################################")
+         console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@',filename)
+        
       }
       // compilation.chunks.forEach(function (chunk) {
       //   // 检索由 chunk 生成的每个资源(asset)文件名：
@@ -24,4 +24,4 @@ class BasicPlugin {
 }
 
 
-export default BasicPlugin;
+export default StaticPathPlugin;

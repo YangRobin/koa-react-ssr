@@ -49,6 +49,7 @@ class ArticleApi {
    * 
    */
   async loadQuery(ctx, next) {
+    console.dir(ctx.proxy)
     const { page, pageSize } = JSON.parse(ctx.request.body)
     let data = [];
     let res = {}

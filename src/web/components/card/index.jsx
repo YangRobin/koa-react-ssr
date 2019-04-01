@@ -47,7 +47,9 @@ class Card extends React.Component {
     return (
       <div className={style.card}>
         {/* <UserInfo data={user} /> */}
-        <h3 className={style.title}>{this.props.data.title}</h3>
+        <h3 className={style.title}>
+          <a href={"/detail/"+this.props.data.id}>{this.props.data.title}</a>
+        </h3>
         <div className={style.content}>
           {/* {
             this.state.isOpened ? '' : <img src={this.props.data.cover} alt="" />

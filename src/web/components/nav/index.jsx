@@ -13,19 +13,13 @@ export default class Nav extends React.Component {
       ],
       page: 1,
       isMoreShow: false,
+      hasNext:true,
+      loadingText:"下拉加载更多..."
     }
   }
   componentDidMount() {
-    post("/api/loadQuery", {
-      page: this.state.page,
-      pageSize: 6,
-    }).then(res => {
-      this.setState({
-        data: res.data,
-        hasNext: res.hasNext,
-        page: this.state.page + 1,
-      })
-    })
+    console.log("robin")
+    this.loadArticle();
     let timer = null;
     window.onscroll = () => {
       if (timer) {
@@ -37,25 +31,22 @@ export default class Nav extends React.Component {
       }, 2000)
     }
   }
-
-  throttle() {
-    window.onscroll = () => {
-      setTimeout(() => {
-
-      }, 3000)
-    }
-  }
-
   loadArticle() {
+    if(!this.state.hasNext){
+      this.setState({
+        loadingText:"没有更多了"
+      })
+      return;
+    }
     post("/api/loadQuery", {
       page: this.state.page,
-      pageSize: 6,
+      pageSize: 5,
     }).then(res => {
       let data = this.state.data;
       data = data.concat(res.data)
       this.setState({
         data,
-        hasNext: this.state.hasNext,
+        hasNext: res.hasNext,
         page: this.state.page + 1,
       })
       return res;
@@ -96,6 +87,9 @@ export default class Nav extends React.Component {
           {
             this.renderList()
           }
+        </div>
+        <div className={style.loading}>
+          <span>{this.state.loadingText}</span>
         </div>
       </div>
     )

@@ -9,6 +9,8 @@ import session from 'koa-session';
 import LoginMidware from './middleware/LoginMidware';
 import bodyParser from 'koa-bodyparser';
 import cacheHeader from './middleware/cacheHeader'
+import { changStaticPathInHtml } from '../util/changePath'
+changStaticPathInHtml();
 
 const staticPath = './resource'
 const app = new Koa();
@@ -44,5 +46,4 @@ app
   .use(router.allowedMethods())
   .listen(config.port)
 console.info('server run on ' + config.port)
-
 
