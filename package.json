@@ -15,7 +15,7 @@
     "server": "cross-env NODE_ENV=test nodemon --exec  babel-node src/server/index.js ",
     "dev": " nodemon   --exec   babel-node  bin/react2html.js",
     "serve": "npm  start && npm run prod",
-    "admin": "webpack-dev-server --config ./src/config/webpack.config.admin.babel.js --mode development",
+    "admin": "webpack-dev-server --open --config ./src/config/webpack.config.admin.babel.js --mode development",
     "admin-build": "webpack --config ./src/config/webpack.config.admin.babel.js --mode production"
   },
   "author": "robin",

@@ -29,6 +29,17 @@ class Detail extends Component {
       console.log(err)
     })
   }
+  renderHotList(){
+    return [{
+      title:'精通正则表达式'
+    },{
+      title:"react hooks 原理解析"
+    }].map((item,index)=>{
+      return(
+        <li><span>{index+1+"."}</span><a href="#">{item.title}</a></li>
+      )
+    })
+  }
   render() {
     const { data } = this.state
     // console.log(this.state)
@@ -44,10 +55,23 @@ class Detail extends Component {
               <div dangerouslySetInnerHTML={{ __html: data.content }}></div>
             </div>
             <div className={style.left}>
-              hotList
+              <div>
+                <div className={style.title} >
+                  <span>推荐文章</span>
+                </div>
+                <ul>
+                  {this.renderHotList()}
+                  {/* <li><a href="/#">react hooks的使用</a></li>
+                  <li><a href="/#">正则表达式的掌握</a></li>
+                  <li><a href="/#">web缓存</a></li>
+                  <li><a href="/#">vuejs入门到精通</a></li> */}
+                </ul>
+              </div>
             </div>
             <div className={style.right}>
-              adv
+              <div>
+                使用工具
+              </div>
             </div>
           </div>
         </Wrapper>

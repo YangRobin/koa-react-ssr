@@ -1,8 +1,4 @@
 .detail {
-  .ql-video {
-    width: 882px;
-    height: 497px;
-  }
 
   // background-color: #fff;
   .main {
@@ -19,18 +15,49 @@
       width: 200px;
       margin-left: -100%;
       left: -200px;
+      padding: 0 10px;
+      box-sizing: border-box;
+
+      >div {
+        padding: 10px;
+        background: #fff;
+        .title{
+          border-bottom: 1px solid #e5e5e5;
+          padding:2px;
+          span{
+            font-size: 13px;
+          }
+        }
+        
+        ul>li{
+          margin: 4px 0;
+          font-size: 13px;
+          a {
+            color: #175199;
+          }
+        }
+       
+      }
     }
 
     .middle {
-      background-color: #fff;
+      box-sizing: border-box;
+      padding: 10px;
       width: 100%;
+      background: #fff;
     }
 
     .right {
+      box-sizing: border-box;
       width: 220px;
-      background-color: blue;
       margin-left: -220px;
       right: -220px;
+      padding: 0 10px;
+
+      >div {
+        padding: 10px;
+        background: #fff;
+      }
     }
   }
 }
