@@ -4,7 +4,8 @@
       <div class="add-header">
         <h3>文章管理</h3>
         <div>
-          <Button @click="showTopModal" type="primary">置顶配置</Button>
+          <!-- <Button @click="showTopModal" type="primary">置顶配置</Button> -->
+          <router-link class="link-btn" to="/article-config">置顶配置</router-link>
           <router-link class="link-btn" to="/add-article/null">添加文章</router-link>
         </div>
       </div>
@@ -31,13 +32,13 @@ export default {
   name: "articleManager",
   data() {
     return {
-      topList: [{id:1,articleId:1,title:"没有"}],
+      topList: [{ id: 1, articleId: 1, title: "没有" }],
       topCol: [
         {
           title: "id",
           key: "id"
         },
-         {
+        {
           title: "articleId",
           key: "articleId"
         },

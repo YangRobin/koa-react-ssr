@@ -1,13 +1,13 @@
 
 import Router from 'koa-router'
-import { home } from './controller/HomeCtrl';
-import { login ,loginIn } from './controller/loginCtrl';
-import UserApi from './controller/UserApi';
-import upload from './controller/uploadCtrl';
 import ArticleApi from './controller/ArticleApi';
+import { home } from './controller/HomeCtrl';
+import UserApi from './controller/UserApi';
+import { login ,loginIn } from './controller/loginCtrl';
+import upload from './controller/uploadCtrl';
 import { admin } from './controller/AdminCtrl'
 import { detail } from './controller/DetailCtrl'
-
+import { queryConfigList } from './controller/ArticleConfigApi'
 let router = new Router();
 
 
@@ -26,6 +26,7 @@ router.post('/api/queryArticleById', ArticleApi.queryArticleById)
 router.post('/api/queryArticleByPage',ArticleApi.queryArticleByPage)
 router.get('/api/queryUserByNameAndPassword', UserApi.queryUserByNameAndPassword)
 router.get('/api/queryAllArticle', ArticleApi.queryAllArticle)
+router.get("/api/queryConfigList",queryConfigList)
 
 
 export default router;

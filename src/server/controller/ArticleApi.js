@@ -7,7 +7,7 @@
 import userService from '../services/userServiceFacade'
 import articleService from '../services/ArticleServiceFacade'
 import { underscore2upperCase } from "../../util/util"
-import Moment from 'moment';
+
 
 class ArticleApi {
 
