@@ -2,18 +2,40 @@
   <div>
     config
     <Table :columns="configCol" :data="configList"></Table>
-    <Modal @on-ok="topModalOk" @on-cancel="topMoalCancel" v-model="topListVisible" title="置顶配置">
+    <Modal @on-ok="topModalOk" width="700px" @on-cancel="topMoalCancel" v-model="topListVisible" title="置顶配置">
+      <Form ref="formValidate" :label-width="80">
+        <FormItem label="文章标题" prop="searchParam.title">
+          <Input placeholder="请输入文章标题"/>
+        </FormItem>
+        <FormItem label="关键字" prop="searchParam.keyword">
+          <Input placeholder="请输入关键字"/>
+        </FormItem>
+        <FormItem label="文章类型">
+          <Select v-model="searchParam.type">
+            <Option value="beijing">New York</Option>
+            <Option value="shanghai">London</Option>
+            <Option value="shenzhen">Sydney</Option>
+          </Select>
+        </FormItem>
+        <FormItem label="创建日期" prop="searchParam.gmtCreate">
+          <DatePicker type="date" placeholder="Select date" v-model="searchParam.date"></DatePicker>
+        </FormItem>
+        <FormItem>
+          <Button type="primary">查询</Button>
+          <Button type="default">重置</Button>
+        </FormItem>
+      </Form>
       <Table :columns="topCol" :data="topList"></Table>
     </Modal>
   </div>
 </template>
 <script>
-import { Table, Modal } from "iview";
 import { get } from "../../../../util/request";
 export default {
   name: "ArticleConfig",
   data() {
     return {
+      searchParam: {},
       topListVisible: false,
       topList: [{ id: 1, articleId: 1, title: "没有" }],
       topCol: [

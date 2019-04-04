@@ -26,7 +26,6 @@
 </template>
 <script>
 import AddArticle from "./AddArticle";
-import { Table, Button, Page, Modal } from "iview";
 import { post } from "../../../../util/request";
 export default {
   name: "articleManager",
