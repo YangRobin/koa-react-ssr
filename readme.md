@@ -14,9 +14,7 @@
      npm install -g 
      npm link 
   ```
-
-
-
+  
 ##### 目录结构
 ``` javascript
 ├─config
