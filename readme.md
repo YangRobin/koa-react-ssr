@@ -19,17 +19,25 @@
 
 ##### 目录结构
 ``` javascript
-src
-├─config   :项目配置目录，包括了服务的配置 和前端webpack 配置等信息
-├─bin: 该目录 包含一些全局的命令行命令 ，在启动项目中之前 做一些资源准备工作
-├─controller :后端控制器
-├─dist   :前端打包后的资源文件宝行了html ,css ,js ,img等静态文件
-├─loaders  ： 自定义webpack loader 
-├─pages : react 组件 一个组件一个页面
-├─plugins : 自定义webpack 插件目录
-├─service: 通用数据接口
-├─util :常用工具类
-└─web 
+├─config
+├─server //后端目录路
+│  ├─controller
+│  ├─middleware
+│  ├─resource
+│  └─services
+├─util   //通用工具目录
+│  ├─loaders  //webpack loader
+│  └─plugins  //webpack plugin
+└─web     //前端目录
+    ├─common     
+    ├─components //react 组件
+    └─pages     //pages 目录下的文件最终打包成静态资源 丢给服务端的 resource 目录 以供服务端渲染
+        ├─admin   //admin目录下 是vue单页应用,包含了vue路由store等所有的配置，开发后台的时候 npm run admin 可以单独启动项目
+        │  ├─components //vue通用组件
+        │  └─pages   //vue 通用页面组件
+        ├─detail  // detail ,home ,login是react 生产的页面
+        ├─home  
+        └─login
 
 ```
 
