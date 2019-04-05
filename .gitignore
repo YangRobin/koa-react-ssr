@@ -5,3 +5,4 @@ src/dist/
 src/template/resource/
 src/server/resource/img
 src/server/resource/
+.vscode 
