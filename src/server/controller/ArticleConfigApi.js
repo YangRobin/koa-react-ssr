@@ -21,7 +21,7 @@ export async function queryConfigList(ctx, next) {
     //   let article = await ArticleServiceFacade.queryArticleById(e.id);
     //   e.article = article;
     // });
-    console.log(result)
+      
     ctx.body = {
       success: true,
       result,

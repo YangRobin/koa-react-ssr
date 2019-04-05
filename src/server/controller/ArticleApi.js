@@ -15,7 +15,7 @@ class ArticleApi {
     const configList =await queryArticleConfigList();
     const len= configList.length;
     let result=[];
-    console.log(configList)
+      
     for (let i =0 ;i<len;i++){
       if(configList[i].article_id){
         let article= await articleService.queryArticleById(parseInt(configList[i].article_id))
@@ -40,7 +40,7 @@ class ArticleApi {
 
     } catch (e) {
       res = e;
-      // console.log(err)
+      //   
       // ctx.body = {
       //   success: false,
       //   result: err,
@@ -80,7 +80,7 @@ class ArticleApi {
     const { id } = JSON.parse(ctx.request.body);
     let res = await articleService.queryArticleById(id);
     res = underscore2upperCase(JSON.parse(JSON.stringify(res[0])));
-    console.log("res", res)
+      
     ctx.body = {
       success: true,
       result: res,
@@ -116,7 +116,7 @@ class ArticleApi {
 
   async updateArticle(ctx, next) {
     const article = JSON.parse(ctx.request.body);
-    console.log("DDD", article)
+      
     const user = ctx.session.user
     article.discard = 0
     article.creator = user.id;

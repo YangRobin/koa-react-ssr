@@ -15,7 +15,7 @@ class ArticleServiceFacade {
     try {
       if (param.title) {
         sql = sql + ` where title = '${param.title}'`;
-        console.log(sql)
+          
       }
       if (param.keyword) {
         sql = sql + ` where content like '%${param.keyword}%'`
@@ -104,7 +104,7 @@ class ArticleServiceFacade {
       id = ${ article.id}
       `
 
-    console.log("sql", sql)
+      
     return query(sql)
   }
 

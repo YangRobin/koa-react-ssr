@@ -1,13 +1,13 @@
-
-
 .commentor {
-    margin-top: 10px;
-    padding-top: 5px;
-    border-top: 1px solid #ededed;
-  .publish{
+  margin-top: 10px;
+  padding-top: 5px;
+  border-top: 1px solid #ededed;
+
+  .publish {
     text-align: right;
-    margin:10px;
-    button{
+    margin: 10px;
+
+    button {
       background: #ff2369;
       color: white;
       border: none;
@@ -17,23 +17,32 @@
       cursor: pointer;
     }
   }
-  .header{
+
+  .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .openArticle{
-      color: #0aa3ff;
-      font-size: 14px;
+
+    .openArticle {
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+      background: #ff8c12;
+      padding: 2px 4px;
+      border-radius: 3px;
       cursor: pointer;
     }
-    .operator{
+
+    .operator {
       display: flex;
-      li{
-        span{
+
+      li {
+        span {
           padding: 2px 5px;
           cursor: pointer;
         }
-        .commenterBtn{
+
+        .commenterBtn {
           border: 1px solid #287bff;
           color: #287bff;
           border-radius: 5px;
@@ -41,17 +50,18 @@
       }
     }
   }
-  
-  .commentorList{
+
+  .commentorList {
     padding: 10px;
-   
-    .commentorInput{
-      margin:10px;
+
+    .commentorInput {
+      margin: 10px;
       border: 1px solid #dddddd;
       min-height: 50px;
       padding: 5px;
-      :active{
-        border:1px solid red;
+
+      :active {
+        border: 1px solid red;
       }
     }
   }

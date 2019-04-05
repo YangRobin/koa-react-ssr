@@ -11,7 +11,7 @@ export default class Header extends React.PureComponent {
       <div className={style.header}>
         <Wrapper>
           <div>
-            <span className={style.logo}>一个全栈的养成记</span>
+            <a href="/" className={style.logo}>一个全栈的养成记</a>
           </div>
         </Wrapper>
       </div>

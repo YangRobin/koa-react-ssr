@@ -78,7 +78,7 @@ class Detail extends Component {
             </div>
             <div className={style.right}>
               <div>
-                使用工具
+                <span>实用工具</span>
               </div>
             </div>
           </div>

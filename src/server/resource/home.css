@@ -271,8 +271,12 @@ li {
     justify-content: space-between;
     align-items: center; }
     .style_commentor_src-web-components-commentor- .style_header_src-web-components-commentor- .style_openArticle_src-web-components-commentor- {
-      color: #0aa3ff;
-      font-size: 14px;
+      color: white;
+      font-size: 13px;
+      cursor: pointer;
+      background: #ff8c12;
+      padding: 2px 4px;
+      border-radius: 3px;
       cursor: pointer; }
     .style_commentor_src-web-components-commentor- .style_header_src-web-components-commentor- .style_operator_src-web-components-commentor- {
       display: flex; }
