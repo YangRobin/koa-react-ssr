@@ -7,7 +7,7 @@ import { login ,loginIn } from './controller/loginCtrl';
 import upload from './controller/uploadCtrl';
 import { admin } from './controller/AdminCtrl'
 import { detail } from './controller/DetailCtrl'
-import { queryConfigList } from './controller/ArticleConfigApi'
+import { queryConfigList ,updateConfig } from './controller/ArticleConfigApi'
 let router = new Router();
 
 
@@ -28,6 +28,7 @@ router.post("/api/queryArticle",ArticleApi.queryArticle)
 router.get('/api/queryUserByNameAndPassword', UserApi.queryUserByNameAndPassword)
 router.get('/api/queryAllArticle', ArticleApi.queryAllArticle)
 router.get("/api/queryConfigList",queryConfigList)
+router.post("/api/updateConfig",updateConfig)
 
 
 export default router;

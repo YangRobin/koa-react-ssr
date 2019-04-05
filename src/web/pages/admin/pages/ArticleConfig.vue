@@ -31,22 +31,27 @@
           <Button type="default" @click="reset">重置</Button>
         </FormItem>
       </Form>
-      <Table :columns="topCol" :data="topList"></Table>
-      <!-- <div style="margin: 10px;overflow: hidden">
-        <div style="float: right;">
-          <Page :total="topList.length" :current="page" :page-size="pageSize" @on-change="pageChange"></Page>
-        </div>
-      </div> -->
+      <div class="article-list">
+        <RadioGroup v-model="animal">
+          <div class="radio-item" v-for="i in topList" :key="i.id">
+            <Radio :label="i.id"/>
+            <span>{{i.title}}</span>
+            <span>{{i.type}}</span>
+            <span>{{i.create_time}}</span>
+          </div>
+        </RadioGroup>
+      </div>
     </Modal>
   </div>
 </template>
 <script>
-import {Modal} from 'iview'
+import { Modal } from "iview";
 import { get, post } from "../../../../util/request";
 export default {
   name: "ArticleConfig",
   data() {
     return {
+      target: {},
       pageSize: 5,
       page: 1,
       searchParam: {
@@ -54,6 +59,7 @@ export default {
         gmtCreate: "",
         keyWord: ""
       },
+      animal: 0,
       topListVisible: false,
       topList: [],
       topCol: [
@@ -82,7 +88,13 @@ export default {
         },
         {
           title: "title",
-          key: "title"
+          render: (h, params) => {
+            console.log(params);
+            return h(
+              "span",
+               params.row.article && params.row.article.length ? params.row.article[0].title : ""
+            );
+          }
         },
         {
           title: "Action",
@@ -103,7 +115,7 @@ export default {
                   },
                   on: {
                     click: () => {
-                      this.editConfig();
+                      this.editConfig(params.row.id);
                       console.log(params);
                       // this.$router.push("/add-article/" + params.row.id);
                       // this.show(params.index);
@@ -129,21 +141,21 @@ export default {
       this.searchParam = {};
       //  console.log( this.$refs.formValidate.resetFields())
     },
-    valideParam(){
-      var isValid=true;
-      for( let i in this.searchParam){
-         if(!this.searchParam[i]){
-           isValid=false;
-         }
+    valideParam() {
+      let isValid = false;
+      for (let i in this.searchParam) {
+        if (this.searchParam[i]) {
+          isValid = true;
+        }
       }
       return isValid;
     },
     queryArticle() {
-      if(!this.valideParam()){
+      if (!this.valideParam()) {
         Modal.error({
-          title:"请至少输入一个查询条件"
-        })
-        return ;
+          title: "请至少输入一个查询条件"
+        });
+        return;
       }
       post("/api/queryArticle", this.searchParam).then(res => {
         if (res.success) {
@@ -151,14 +163,22 @@ export default {
         }
       });
     },
-    editConfig() {
+    editConfig(id) {
+      this.target.id = id;
       this.showTopModal();
     },
     showTopModal() {
       this.topListVisible = true;
     },
     topModalOk() {
+      console.log(this.animal);
+      this.updateConfig(this.target.id, this.animal);
       this.topMoalCancel();
+    },
+    updateConfig(id, articleId) {
+      post("/api/updateConfig", { id, articleId }).then(res => {
+        console.log(res);
+      });
     },
     topMoalCancel() {
       this.topListVisible = false;
@@ -179,3 +199,13 @@ export default {
 };
 </script>
 
+<style lang="scss" scoped>
+.article-list {
+  padding: 20px;
+  border: 1px solid #e7e7e7;
+  .radio-item {
+    padding: 5px;
+    border-bottom: 1px solid #e7e7e7;
+  }
+}
+</style>
