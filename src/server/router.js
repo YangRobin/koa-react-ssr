@@ -29,6 +29,7 @@ router.get('/api/queryUserByNameAndPassword', UserApi.queryUserByNameAndPassword
 router.get('/api/queryAllArticle', ArticleApi.queryAllArticle)
 router.get("/api/queryConfigList",queryConfigList)
 router.post("/api/updateConfig",updateConfig)
+router.get('/api/queryHostList',ArticleApi.queryHostList)
 
 
 export default router;

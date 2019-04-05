@@ -7,9 +7,26 @@
 import userService from '../services/userServiceFacade'
 import articleService from '../services/ArticleServiceFacade'
 import { underscore2upperCase } from "../../util/util"
-
+import { queryArticleConfigList } from  '../services/ArticleConfigServiceFacade'
 
 class ArticleApi {
+
+  async queryHostList(ctx, next) {
+    const configList =await queryArticleConfigList();
+    const len= configList.length;
+    let result=[];
+    console.log(configList)
+    for (let i =0 ;i<len;i++){
+      if(configList[i].article_id){
+        let article= await articleService.queryArticleById(parseInt(configList[i].article_id))
+        result.push(article[0]);
+      }
+    }
+    ctx.body={
+      result,
+      success:true
+    }
+  }
 
   /**
    * query 

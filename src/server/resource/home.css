@@ -115,16 +115,16 @@ hue-6-2: #c18401
 .hljs-link {
   text-decoration: underline;
 }
-.style_footer_src-web-components-footer- {
-  text-align: center;
-  color: #999999;
-  font-size: 15px;
-  padding: 10px; }
 .style_wrapper_src-web-components-wrapper- {
   max-width: 1300px;
   margin-left: auto;
   margin-right: auto;
   position: relative; }
+.style_footer_src-web-components-footer- {
+  text-align: center;
+  color: #999999;
+  font-size: 15px;
+  padding: 10px; }
 .style_header_src-web-components-header- {
   background-color: white;
   height: 42px;

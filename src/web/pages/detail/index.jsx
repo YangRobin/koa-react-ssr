@@ -3,21 +3,31 @@ import ReactDom from 'react-dom';
 import Layout from '../../components/Layout/index.jsx'
 import Wrapper from '../../components/wrapper/index.jsx'
 import style from './style.scss'
-import { post } from '../../../util/request'
+import { post, get } from '../../../util/request'
 import 'highlight.js/styles/atom-one-light.css'
 import '../../common/common.css'
+
 class Detail extends Component {
   constructor(props) {
     super(props);
     this.state = {
       title: "detail",
       id: null,
-      data: {}
+      data: {},
+      hostList: [],
     }
   }
   componentDidMount() {
     const id = location.href.split('/').pop();
     this.queryArticleById(id);
+    this.queryHostList();
+  }
+  queryHostList() {
+    get('/api/queryHostList').then(res => {
+      this.setState({
+        hostList: res.result,
+      })
+    })
   }
   queryArticleById(id) {
     return post('/api/queryArticleById', { id }).then(res => {
@@ -29,14 +39,12 @@ class Detail extends Component {
       console.log(err)
     })
   }
-  renderHotList(){
-    return [{
-      title:'精通正则表达式'
-    },{
-      title:"react hooks 原理解析"
-    }].map((item,index)=>{
-      return(
-        <li><span>{index+1+"."}</span><a href="#">{item.title}</a></li>
+  renderHotList() {
+    return this.state.hostList.map((item, index) => {
+      return (
+        <li><span>{index + 1 + "."}</span><a href={"/detail/"+item.id}>{
+          item.title.length > 10 ? item.title.substr(0, 10) +"..." : item.title
+        }</a></li>
       )
     })
   }

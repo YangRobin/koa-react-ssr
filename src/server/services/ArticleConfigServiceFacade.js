@@ -21,3 +21,4 @@ export function updateArticleConfigById(id,articleId){
   `
   return query(sql);
 }
+
