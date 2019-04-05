@@ -16,13 +16,6 @@
         <FormItem label="关键字" prop="searchParam.keyword">
           <Input v-model="searchParam.keyword" placeholder="请输入关键字"/>
         </FormItem>
-        <!-- <FormItem label="文章类型">
-          <Select v-model="searchParam.type">
-            <Option value="beijing">New York</Option>
-            <Option value="shanghai">London</Option>
-            <Option value="shenzhen">Sydney</Option>
-          </Select>
-        </FormItem>-->
         <FormItem label="创建日期">
           <DatePicker type="date" placeholder="Select date" v-model="searchParam.gmtCreate"></DatePicker>
         </FormItem>
@@ -89,7 +82,6 @@ export default {
         {
           title: "title",
           render: (h, params) => {
-            console.log(params);
             return h(
               "span",
                params.row.article && params.row.article.length ? params.row.article[0].title : ""
@@ -116,7 +108,6 @@ export default {
                   on: {
                     click: () => {
                       this.editConfig(params.row.id);
-                      console.log(params);
                       // this.$router.push("/add-article/" + params.row.id);
                       // this.show(params.index);
                     }
@@ -139,7 +130,6 @@ export default {
     },
     reset() {
       this.searchParam = {};
-      //  console.log( this.$refs.formValidate.resetFields())
     },
     valideParam() {
       let isValid = false;
@@ -171,13 +161,11 @@ export default {
       this.topListVisible = true;
     },
     topModalOk() {
-      console.log(this.animal);
       this.updateConfig(this.target.id, this.animal);
       this.topMoalCancel();
     },
     updateConfig(id, articleId) {
       post("/api/updateConfig", { id, articleId }).then(res => {
-        console.log(res);
       });
     },
     topMoalCancel() {
