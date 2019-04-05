@@ -32,21 +32,27 @@
         </FormItem>
       </Form>
       <Table :columns="topCol" :data="topList"></Table>
+      <!-- <div style="margin: 10px;overflow: hidden">
+        <div style="float: right;">
+          <Page :total="topList.length" :current="page" :page-size="pageSize" @on-change="pageChange"></Page>
+        </div>
+      </div> -->
     </Modal>
   </div>
 </template>
 <script>
+import {Modal} from 'iview'
 import { get, post } from "../../../../util/request";
 export default {
   name: "ArticleConfig",
   data() {
     return {
+      pageSize: 5,
+      page: 1,
       searchParam: {
         title: "",
         gmtCreate: "",
-        keyWord: "",
-        pageSize: 5,
-        page: 1
+        keyWord: ""
       },
       topListVisible: false,
       topList: [],
@@ -116,10 +122,29 @@ export default {
     this.queryConfigList();
   },
   methods: {
+    pageChange() {
+      this.queryArticle();
+    },
     reset() {
+      this.searchParam = {};
       //  console.log( this.$refs.formValidate.resetFields())
     },
+    valideParam(){
+      var isValid=true;
+      for( let i in this.searchParam){
+         if(!this.searchParam[i]){
+           isValid=false;
+         }
+      }
+      return isValid;
+    },
     queryArticle() {
+      if(!this.valideParam()){
+        Modal.error({
+          title:"请至少输入一个查询条件"
+        })
+        return ;
+      }
       post("/api/queryArticle", this.searchParam).then(res => {
         if (res.success) {
           this.topList = res.result;
@@ -137,6 +162,7 @@ export default {
     },
     topMoalCancel() {
       this.topListVisible = false;
+      this.topList = [];
     },
     queryConfigList() {
       get("/api/queryConfigList")

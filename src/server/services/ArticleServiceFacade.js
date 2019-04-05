@@ -18,12 +18,12 @@ class ArticleServiceFacade {
         console.log(sql)
       }
       if (param.keyword) {
-        sql = sql + ` where content like %${param.keyword}%`
+        sql = sql + ` where content like '%${param.keyword}%'`
       }
       if (param.gmtCreate) {
         sql = sql + ` where create_time = '${param.gmtCreate}'`
       }
-      sql = sql + ` limit ${param.pageSize} offset ${param.pageSize * (param.page - 1)}`
+      // sql = sql + ` limit ${param.pageSize} offset ${param.pageSize * (param.page - 1)}`
     } catch (e) {
       throw new Error(e);
     }
@@ -103,6 +103,7 @@ class ArticleServiceFacade {
       WHERE
       id = ${ article.id}
       `
+
     console.log("sql", sql)
     return query(sql)
   }
