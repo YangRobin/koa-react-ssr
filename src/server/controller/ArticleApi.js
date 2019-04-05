@@ -12,6 +12,31 @@ import { underscore2upperCase } from "../../util/util"
 class ArticleApi {
 
   /**
+   * query 
+   */
+
+  async queryArticle(ctx, next) {
+    const param = JSON.parse(ctx.request.body)
+    var res;
+    try {
+      res = await articleService.getArticle(param);
+
+    } catch (e) {
+      res = e;
+      // console.log(err)
+      // ctx.body = {
+      //   success: false,
+      //   result: err,
+      // }
+    }
+
+    ctx.body = {
+      success: true,
+      result: res,
+    }
+  }
+
+  /**
    *   request url /queryUserByNameAndPassword
    *   return the user information which type is json
    */
