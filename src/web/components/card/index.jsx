@@ -2,7 +2,7 @@
 
 import PropTypes from 'prop-types';
 import React from 'react';
-import style from './style.scss'
+import style from './style.less'
 import Commentor from '../commentor/index.jsx'
 import Mark from 'react-markdown';
 import UserInfo from '../userinfo/index.jsx'

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import style from './style.scss'
+import style from './style.less'
 
 export default class topMenu extends React.Component{
 

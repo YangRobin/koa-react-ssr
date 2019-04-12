@@ -4,18 +4,25 @@
  * @author robin.yang
  */
 
-
+const lessParser = require('postcss-less').parse;
 require('css-modules-require-hook')({
-  extensions: ['.scss', '.css'],
-  preprocessCss: (data, filename) =>
-    require('node-sass').renderSync({
-      data,
-      file: filename
-    }).css,
-  // camelCase: true,
-  // generateScopedName: '[name]_[local]_[hash:base64:5]',
+  extensions: ['.less', '.css'],
+  processorOpts: { parser: lessParser },
   generateScopedName: '[name]_[local]_[path]',
 })
+//如果用scss坑很多 下载node-sass 总是报错，而且配置也比较麻烦，如果用less 则配置更简单 使用postcss-less 编译less。
+
+// require('css-modules-require-hook')({
+//   extensions: ['.scss', '.css'],
+//   preprocessCss: (data, filename) =>
+//     require('node-sass').renderSync({
+//       data,
+//       file: filename
+//     }).css,
+//   // camelCase: true,
+//   // generateScopedName: '[name]_[local]_[hash:base64:5]',
+//   generateScopedName: '[name]_[local]_[path]',
+// })
 
 
 

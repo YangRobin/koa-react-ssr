@@ -2,7 +2,7 @@
 
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './style.scss'
+import style from './style.less'
 
 class UserInfo extends React.PureComponent {
 

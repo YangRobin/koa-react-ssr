@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Wrapper from '../wrapper/index.jsx'
-import style from './style.scss'
+import style from './style.less'
 
 export default class Footer extends React.PureComponent {
 

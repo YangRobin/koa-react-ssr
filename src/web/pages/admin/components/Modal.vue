@@ -68,7 +68,7 @@ export default {
   }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .modal-mask {
   position: fixed;
   top: 0;

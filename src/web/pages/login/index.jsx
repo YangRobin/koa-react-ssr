@@ -5,7 +5,7 @@ import ReactDom from 'react-dom';
 import Layout from '../../components/Layout/index.jsx'
 import Wrapper from '../../components/wrapper/index.jsx'
 import LoginCard from '../../components/login/index.jsx';
-import style from './style.scss'
+import style from './style.less'
 
 
 class Login extends Component {

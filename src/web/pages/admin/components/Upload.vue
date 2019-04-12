@@ -63,7 +63,7 @@ export default {
   }
 };
 </script>
-<style lang="scss">
+<style lang="less">
 .upload {
   width: 100px;
   height: 100px;

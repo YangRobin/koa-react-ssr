@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom';
 import Layout from '../../components/Layout/index.jsx'
 import Wrapper from '../../components/wrapper/index.jsx'
-import style from './style.scss'
+import style from './style.less'
 import { post, get } from '../../../util/request'
 import 'highlight.js/styles/atom-one-light.css'
 import '../../common/common.css'

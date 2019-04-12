@@ -3,7 +3,7 @@
 import React from 'react';
 import Header from "../header/index.jsx"
 import Footer from '../footer/index.jsx';
-import style from "./style.scss"
+import style from "./style.less"
 
 const Layout = (ChildComponent) => class extends React.Component {
 	render() {

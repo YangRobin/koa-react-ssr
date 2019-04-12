@@ -51,7 +51,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .bread-cut {
   padding-left: 10px;
   color: #7188fc;

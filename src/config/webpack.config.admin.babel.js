@@ -11,7 +11,7 @@ let config = {
   devtool: 'none',
   entry: {
     app: './src/web/pages/admin/index.js',
-    vendor: ['vue', 'vue-router', 'moment','iview'],
+    vendor: ['vue', 'vue-router', 'moment', 'iview'],
     editor: ['vue-quill-editor'],
   },
   output: {
@@ -123,12 +123,12 @@ let config = {
         })
       },
       {
-        test: /\.(sass|scss)$/,
+        test: /\.less$/,
         use: ExtractTextPlugin.extract({
           fallback: 'style-loader',
           use: [
             'css-loader',
-            'sass-loader',
+            'less-loader',
           ]
         })
       }, {

@@ -72,7 +72,7 @@ const conf = {
   },
   module: {
     rules: [{
-      test: /\.scss$/,
+      test: /\.less$/,
       exclude: /node_modules/,
       use: ExtractTextPlugin.extract({
         fallback: 'style-loader',
@@ -82,7 +82,7 @@ const conf = {
             localIdentName: '[name]_[local]_[path]', // 指定css的类名格式,
           }
         }, {
-          loader: 'sass-loader',
+          loader: 'less-loader',
 
         }]
       })

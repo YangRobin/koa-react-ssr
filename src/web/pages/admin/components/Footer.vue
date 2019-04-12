@@ -9,7 +9,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
    footer{
       height: 30px;
       background-color: rgb(71, 67, 52);

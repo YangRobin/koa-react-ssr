@@ -1,6 +1,6 @@
 
 import React from 'react'
-import style from './style.scss';
+import style from './style.less';
 import {post} from '../../../util/request'
 
 class LoginCard extends React.PureComponent {

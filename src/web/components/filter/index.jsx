@@ -1,5 +1,5 @@
 import React from 'react'
-import style from './style.scss'
+import style from './style.less'
 import { connect } from 'react-redux'
 
 import { Type } from '../../../util/type'

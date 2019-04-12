@@ -187,7 +187,7 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .article-list {
   padding: 20px;
   border: 1px solid #e7e7e7;

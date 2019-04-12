@@ -178,7 +178,7 @@ export default {
   }
 };
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .add-header {
   padding: 10px;
   display: flex;

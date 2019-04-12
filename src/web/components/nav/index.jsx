@@ -1,6 +1,6 @@
 
 import React from 'react';
-import style from './style.scss';
+import style from './style.less';
 import Card from '../card/index.jsx'
 import Filter from '../../components/filter/index.jsx'
 import { isScrollBottom, post, get } from '../../../util/request';

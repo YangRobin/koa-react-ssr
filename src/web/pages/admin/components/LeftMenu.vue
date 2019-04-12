@@ -76,7 +76,7 @@ export default {
   // }
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .left-menu {
   color: #4e5f5b;
   display: flex;

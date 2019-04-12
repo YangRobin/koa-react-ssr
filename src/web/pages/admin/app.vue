@@ -27,7 +27,7 @@ export default {
   name: "app"
 };
 </script>
-<style lang="scss">
+<style lang="less">
 html {
   height: 100%;
 }
