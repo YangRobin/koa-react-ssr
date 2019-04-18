@@ -43,7 +43,7 @@
     npm run server  // 启动后端服务
   ```
 
-  如果还报错 请执行如下命令 加载自定义 shell命令  react2html 
+  如果还报错 请执行如下命令 加载自定义 shell命令 配合nodemon 监听文件变化  react2html 
   ```shell
      npm install -g 
      npm link 
