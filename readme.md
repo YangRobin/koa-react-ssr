@@ -17,6 +17,19 @@
 #### 2.css module的解析
     和上一个问题一样，nodejs 解析jsx文件时，遇到 import "a.css"是 没法解析css文件
 -  解决方法：css-require-modules-hooks 
+```javascript
+      require('css-modules-require-hook')({
+        extensions: ['.scss', '.css'],
+        preprocessCss: (data, filename) =>
+          require('node-sass').renderSync({
+            data,
+            file: filename
+          }).css,
+        // camelCase: true,
+        // generateScopedName: '[name]_[local]_[hash:base64:5]',
+        generateScopedName: '[name]_[local]_[path]',
+      })
+```
 ####  3.前端资源热更新
     服务端渲染 的最终目的就是把jsx文件渲染成静态文件。那么前段开发完 如何实时地打包同步到后端呢？
 -    解决方法：自定义脚本react2html
