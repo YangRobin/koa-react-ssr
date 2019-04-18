@@ -3,13 +3,13 @@
 #### 1.window 对象在服务端不可用
   前后端同构时,renderToString 方法在渲染组件时会执行componentDidmount之前的所有生命周期。在这些什么周期中是不能window的，因为webpack打包时
   的环境是nodejs 环境，拿不到window.
-   解决方法：判断window是否存在
+-   解决方法：判断window是否存在
 #### 2.css module的解析
   和上一个问题一样，nodejs 解析jsx文件时，遇到 import "a.css"是 没法解析css文件
-  解决方法：css-require-modules-hooks 
+-  解决方法：css-require-modules-hooks 
 ####  3.前端资源热更新
     服务端渲染 的最终目的就是把jsx文件渲染成静态文件。那么前段开发完 如何实时地打包同步到后端呢？
-    解决方法：自定义脚本
+-    解决方法：自定义脚本
 ### 如何启动 
   注:流程可能比较麻烦 ,后期会 把整个 启动流程 封装 成一个 nodejs 命令行发布到npm上 .
   启动三个terminal 按顺序 执行以下命令
