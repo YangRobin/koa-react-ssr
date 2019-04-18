@@ -1,7 +1,8 @@
 ### koa-react-ssr (基于koa的react 服务端渲染实践)
 ### 难点
 #### 1.window 对象在服务端不可用
-      前后端同构时,renderToString 方法在渲染组件时会执行componentDidmount之前的所有生命周期。在这些什么周期中是不能window的，因为webpack打包时
+      前后端同构时,renderToString 方法在渲染组件时会执行componentDidmount之前的所有生命周期。
+      在这些什么周期中是不能window的，因为webpack打包时
     的环境是nodejs 环境，拿不到window.
 -   解决方法：判断window是否存在
  ``` javascript
@@ -50,7 +51,8 @@
     ├─common     
     ├─components          //react 组件
     └─pages               //pages 目录下的文件最终打包成静态资源 丢给服务端的 resource 目录 以供服务端渲染
-        ├─admin           //admin目录下 是vue单页应用,包含了vue路由store等所有的配置，开发后台的时候 npm run admin 可以单独启动项目
+        ├─admin           //admin目录下 是vue单页应用,包含了vue路由store等所有的配置，
+                                   开发后台的时候 npm run admin 可以单独启动项目
         │  ├─components   //vue通用组件
         │  └─pages        //vue 通用页面组件
         ├─detail          // detail ,home ,login是react 生产的页面
