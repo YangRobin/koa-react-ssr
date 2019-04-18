@@ -1,9 +1,9 @@
 ### koa-react-ssr (基于koa的react 服务端渲染实践)
+<button> 求个star</button>
 ### 难点
 #### 1.window 对象在服务端不可用
-      前后端同构时,renderToString 方法在渲染组件时会执行componentDidmount之前的所有生命周期。
-      在这些什么周期中是不能window的，因为webpack打包时
-    的环境是nodejs 环境，拿不到window.
+      前后端同构时,renderToString 方法在渲染组件时会执行componentDidmount之前的所有生命周期。在这些什么周期中是不能window的，
+      因为webpack打包时的环境是nodejs 环境，拿不到window.
 -   解决方法：判断window是否存在
  ``` javascript
   if (typeof window !== "undefined") {
