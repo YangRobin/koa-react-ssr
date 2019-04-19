@@ -19,6 +19,8 @@
 #### 难点2.css module的解析
     和上一个问题一样，nodejs 解析jsx文件时，遇到 import "a.css"是 没法解析css文件
 -  解决方法：css-modules-require-hook
+- 需要注意的是 css-modules-require-hook 打包时的hash  和 webpack 打包时的hash 并不一样。如果使用 hash 命名 会造成 css文件中的
+   css名 和 html文件中的css名不一样 .
 ```javascript
       require('css-modules-require-hook')({
         extensions: ['.scss', '.css'],
