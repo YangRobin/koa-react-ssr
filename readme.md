@@ -1,5 +1,5 @@
 ### koa-react-ssr (基于koa的react 服务端渲染实践) [各位大佬 给个star呗]
-### 上线演示 <a href="http://39.98.57.178/"> 基于koa-react 服务端渲染项目演示 </a>
+
 
 ### 难点
 #### 难点1.window 对象在服务端不可用
