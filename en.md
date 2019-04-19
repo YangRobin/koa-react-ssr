@@ -1,7 +1,7 @@
-
+###  English | 中文
 ### koa-react-ssr (welcome issue and appereciated your star)
   koa-react-ssr is a  react server side render framework  based on koa and react.
-### 中文 | English
+
 
 ### 难点
 #### 难点1.window 对象在服务端不可用 ，服务端并不需要 调用ReactDom.hydrate方法 但是前端需要.
