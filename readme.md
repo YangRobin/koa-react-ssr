@@ -2,7 +2,7 @@
 
 
 ### 难点
-#### 难点1.window 对象在服务端不可用
+#### 难点1.window 对象在服务端不可用 ，服务端并不需要 调用ReactDom.hydrate方法 但是前端需要.
       前后端同构时,renderToString 方法在渲染组件时会执行componentDidmount之前的所有生命周期。在这些什么周期中是不能
       window的，因为webpack打包时的环境是nodejs 环境，拿不到window.
 -   解决方法：判断window是否存在
