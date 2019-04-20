@@ -2,7 +2,4 @@
 .DS_Store
 node_modules
 src/dist/
-src/template/resource/
-src/server/resource/img
-src/server/resource/
 .vscode 
