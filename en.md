@@ -1,4 +1,6 @@
-### koa-react-ssr (基于koa的react 服务端渲染实践) [各位大佬 给个star呗]
+###  English | 中文
+### koa-react-ssr (welcome issue and appereciated your star)
+  koa-react-ssr is a  react server side render framework  based on koa and react.
 
 
 ### 难点
@@ -103,3 +105,4 @@
 
 
   
+
