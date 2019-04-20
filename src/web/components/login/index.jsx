@@ -28,9 +28,13 @@ class LoginCard extends React.PureComponent {
       password:this.state.password,
     }).then(res=>{
      if(res.success){
+       console.log("login success")
        window.location.href="/admin";
+       console.log("END")
       //  window.location.reload();
      }
+    }).catch(err=>{
+      console.log(err)
     })
   }
   render() {

@@ -5,12 +5,12 @@ class StaticPathPlugin {
   apply(compiler) {
     compiler.plugin('afterEmit', function (compilation) {
 
-      console.log(compilation)
+      // console.log(compilation)
    
-      for (var filename in compilation.assets) {
-         console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@',filename)
+      // for (var filename in compilation.assets) {
+      //   //  console.log('@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@',filename)
         
-      }
+      // }
       // compilation.chunks.forEach(function (chunk) {
       //   // 检索由 chunk 生成的每个资源(asset)文件名：
       //   chunk.files.forEach(function (filename) {

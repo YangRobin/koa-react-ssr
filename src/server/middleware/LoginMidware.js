@@ -1,7 +1,8 @@
 
+//white list
+const allowUrl = [/\/favicon.ico/,/\/login/, /\/detail\/.*/, /\/api\/loadQuery/, /\/api\/enter/,/\/api\/queryArticleByPage/,/\/api\/queryArticleById/,/\/api\/queryHostList/];
 
-const allowUrl = [/\//, /\/login/, /\/detail\/.*/, /\/api\/loadQuery/, /\/api\/enter/];
-
+//check the url is allowed
 function isAllow(url) {
   let res = false;
   allowUrl.forEach(i => {
@@ -13,11 +14,12 @@ function isAllow(url) {
 }
 
 export default async function LoginMidware(ctx, next) {
+  console.log(ctx.url)
   const ck = ctx.cookies.get('koa:sess')
   if (ck) {
     await next();
   } else {
-    if (isAllow(ctx.url)) {
+    if (isAllow(ctx.url) || ctx.url === "/") {
       await next();
     } else {
       ctx.redirect('/login');

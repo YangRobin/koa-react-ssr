@@ -29,7 +29,7 @@ app
     httpOnly: true, /** (boolean) httpOnly or not (default true) */
     signed: true, /** (boolean) signed or not (default true) */
   }, app))
-  .use(cacheHeader)
+  // .use(cacheHeader)
   .use(views(__dirname + '/resource'))
   .use(koaStatic(
     path.join(__dirname, staticPath),

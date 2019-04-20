@@ -255,7 +255,7 @@ li {
 }
 .style_card_src-web-components-card- .style_content_src-web-components-card- .style_text_src-web-components-card- {
   padding-left: 10px;
-  min-height: 120px;
+  min-height: 80px;
   overflow: hidden;
   position: relative;
 }
@@ -305,7 +305,7 @@ li {
 .style_commentor_src-web-components-commentor- .style_header_src-web-components-commentor- .style_openArticle_src-web-components-commentor- {
   color: white;
   font-size: 13px;
-  background: #ff8c12;
+  background: #ff11b4;
   padding: 2px 4px;
   border-radius: 3px;
   cursor: pointer;

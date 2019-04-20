@@ -23,7 +23,7 @@ const conf = {
     new CleanWebpackPlugin(["../src/server/resource"]),
     new ExtractTextPlugin("[name].css"),
     // new VueLoaderPlugin(),
-    new StaticPathPlugin(),
+    // new StaticPathPlugin(),
   ],
   resolve: {
     extensions: [".js", ".vue", ".json"]

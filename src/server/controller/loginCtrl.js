@@ -20,7 +20,7 @@ export async function loginIn(ctx, next) {
   const { name, password } = JSON.parse(ctx.request.body)
 
   var res = await userService.queryUseByNameAndPassword(name, password);
-    
+  console.log("#############",res)
   if (res.length > 0) {
     ctx.session.user = res[0];
     ctx.body = { success: true }

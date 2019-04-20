@@ -3,9 +3,8 @@ import React from 'react';
 import style from './style.less';
 import Card from '../card/index.jsx'
 import Filter from '../../components/filter/index.jsx'
-import { isScrollBottom, post, get } from '../../../util/request';
+import { post } from '../../../util/request';
 export default class Nav extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +12,8 @@ export default class Nav extends React.Component {
       ],
       page: 1,
       isMoreShow: false,
-      hasNext:true,
-      loadingText:"下拉加载更多..."
+      hasNext: true,
+      loadingText: "下拉加载更多..."
     }
   }
   componentDidMount() {
@@ -32,15 +31,15 @@ export default class Nav extends React.Component {
     }
   }
   loadArticle() {
-    if(!this.state.hasNext){
+    if (!this.state.hasNext) {
       this.setState({
-        loadingText:"没有更多了"
+        loadingText: "没有更多了"
       })
       return;
     }
     post("/api/loadQuery", {
       page: this.state.page,
-      pageSize: 5,
+      pageSize: 10,
     }).then(res => {
       let data = this.state.data;
       data = data.concat(res.data)
