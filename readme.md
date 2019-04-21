@@ -34,9 +34,10 @@
       })
 ```
 ####  难点3.前端资源热更新
-    服务端渲染 的最终目的就是把jsx文件渲染成静态文件。那么前段开发完 如何实时地打包同步到后端呢？
+    服务端渲染 的最终目的就是把jsx文件渲染成静态html文件。那么前段开发完 如何实时地打包同步到后端呢？
 -    解决方法：自定义脚本react2html
       代码详见 <a href="https://github.com/YangRobin/koa-react-ssr/blob/master/bin/react2html.js">react2html</a>
+-  目前要手动执行react2html 把jsx 生产html ，后期想用nodemon 或者 写一个loader  实时render jsx 。
 ### 如何启动 
   注:流程可能比较麻烦 ,后期会 把整个 启动流程 封装 成一个 nodejs 命令行发布到npm上 .
   启动三个terminal 按顺序 执行以下命令
