@@ -1,7 +1,7 @@
-import Koa from 'koa'
-import config from '../config/app.config'
-import router from './router'
-import views from 'koa-views'
+import Koa from 'koa';
+import config from '../config/app.config';
+import router from './router';
+import views from 'koa-views';
 import koaStatic from 'koa-static';
 import path from 'path';
 import koaBody from 'koa-body';
@@ -10,6 +10,7 @@ import LoginMidware from './middleware/LoginMidware';
 import bodyParser from 'koa-bodyparser';
 import cacheHeader from './middleware/cacheHeader'
 import { changStaticPathInHtml } from '../util/changePath'
+const staticCache = require('koa-static-cache');
 changStaticPathInHtml();
 
 const staticPath = './resource'
@@ -29,12 +30,17 @@ app
     httpOnly: true, /** (boolean) httpOnly or not (default true) */
     signed: true, /** (boolean) signed or not (default true) */
   }, app))
-  // .use(cacheHeader)
+  .use(cacheHeader)
   .use(views(__dirname + '/resource'))
   .use(koaStatic(
     path.join(__dirname, staticPath),
-  ))
-  .use(koaBody({
+  )).
+  // .use(
+  //   staticCache(path.join(__dirname, staticPath), {
+  //     maxAge: 365 * 24 * 60 * 60
+  //   })
+  // ).
+  use(koaBody({
     json: true,
     multipart: true,
     formidable: {

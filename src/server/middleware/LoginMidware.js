@@ -20,6 +20,7 @@ export default async function LoginMidware(ctx, next) {
     await next();
   } else {
     if (isAllow(ctx.url) || ctx.url === "/") {
+      console.log("passed")
       await next();
     } else {
       ctx.redirect('/login');

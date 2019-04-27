@@ -12,7 +12,9 @@ h6 {
   margin: 0;
   padding: 0;
 }
-
+img{
+  width:100%;
+}
 a {
   color: #314659;
   text-decoration: none;
