@@ -1,5 +1,5 @@
 ### koa-react-ssr (基于koa的react 服务端渲染实践) [各位大佬 给个star呗]
-### <a href="http://39.98.57.178/">项目在线演示</a>
+### <a href="http://robinyangblog.com/">项目在线演示</a>
 ### 难点
 #### 难点1.window 对象在服务端不可用 ，服务端并不需要 调用ReactDom.hydrate方法 但是前端需要.
       前后端同构时,renderToString 方法在渲染组件时会执行componentDidmount之前的所有生命周期。在这些什么周期中是不能
